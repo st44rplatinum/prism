@@ -252,9 +252,20 @@ permutation invariance of multi-mutant pooling, scoring sign conventions.
 
 ## Data sources
 
-- ClinVar `variant_summary.txt.gz` (NCBI)
-- UniProt REST, HGNC REST
-- ESM-2 (Lin et al., 2023) via HuggingFace
-- ProteinNPT (Notin et al., NeurIPS 2023) — architecture
-- Zero-shot scoring schemes: Meier et al., 2021
-- GRB2 binding DMS: `grb2-binding.tsv` from the METL project
+This project is MIT licensed. That covers the code and the trained head; the
+inputs it was built from carry their own terms, listed here because the
+repository ships artefacts derived from several of them.
+
+| source | used for | terms |
+|---|---|---|
+| ClinVar `variant_summary.txt.gz` (NCBI) | pathogenic/benign labels | public domain |
+| UniProt REST | canonical sequences, accessions | CC BY 4.0 |
+| HGNC REST | gene symbol fallback | CC0 |
+| ESM-2 (Lin et al., 2023) via HuggingFace | backbone weights | MIT |
+| AlphaFold DB | structures in the 3D view | CC BY 4.0 |
+| 3Dmol.js | structure rendering | BSD-3-Clause |
+| GRB2 binding DMS, METL project | fitness regression | fetched, not redistributed |
+
+ProteinNPT (Notin et al., NeurIPS 2023) is the architecture and is implemented
+here from the paper rather than vendored. Zero-shot scoring schemes follow
+Meier et al., 2021.

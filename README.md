@@ -55,3 +55,9 @@ committed, so nothing needs retraining.
 **[Full documentation → `docs/GUIDE.md`](docs/GUIDE.md)** — results, methods,
 rebuild instructions, and the design decisions that are not obvious from the
 code.
+
+## License
+
+[MIT](LICENSE). The committed model weights and parsed data derive from
+ClinVar (public domain), UniProt (CC BY 4.0) and ESM-2 (MIT) — see
+[`docs/GUIDE.md`](docs/GUIDE.md#data-sources) for attribution.
