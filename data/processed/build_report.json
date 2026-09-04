@@ -1,0 +1,29 @@
+{
+  "clinvar_rows_parsed": 31839,
+  "conflicting_substitutions_dropped": 0,
+  "unique_substitutions": 31138,
+  "genes_resolved": 198,
+  "genes_unresolved": [],
+  "genes_offset_corrected": 12,
+  "wt_mismatch_dropped": 236,
+  "wt_match_rate": 0.9924,
+  "after_filters": 29088,
+  "genes_after_filters": 183,
+  "splits": {
+    "test": {
+      "variants": 5814,
+      "genes": 38,
+      "pathogenic_frac": 0.6984864121
+    },
+    "train": {
+      "variants": 20369,
+      "genes": 125,
+      "pathogenic_frac": 0.6999361775
+    },
+    "val": {
+      "variants": 2905,
+      "genes": 20,
+      "pathogenic_frac": 0.7139414802
+    }
+  }
+}

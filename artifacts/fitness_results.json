@@ -1,0 +1,300 @@
+{
+  "tasks": [
+    "fitness"
+  ],
+  "meta": {
+    "history": [
+      {
+        "epoch": 0,
+        "loss_path": 0.0,
+        "loss_fit": 0.1981571292624964,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.7923418800634928
+      },
+      {
+        "epoch": 1,
+        "loss_path": 0.0,
+        "loss_fit": 0.14055973834189597,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8191333456697658
+      },
+      {
+        "epoch": 2,
+        "loss_path": 0.0,
+        "loss_fit": 0.12809610919367212,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8129692571467372
+      },
+      {
+        "epoch": 3,
+        "loss_path": 0.0,
+        "loss_fit": 0.12405077254222685,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.820405446305386
+      },
+      {
+        "epoch": 4,
+        "loss_path": 0.0,
+        "loss_fit": 0.1087681491185746,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8036790317195205
+      },
+      {
+        "epoch": 5,
+        "loss_path": 0.0,
+        "loss_fit": 0.10272973503774362,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8288544461428856
+      },
+      {
+        "epoch": 6,
+        "loss_path": 0.0,
+        "loss_fit": 0.09832961893742322,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8179891230218169
+      },
+      {
+        "epoch": 7,
+        "loss_path": 0.0,
+        "loss_fit": 0.09638850637814661,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8231952249713999
+      },
+      {
+        "epoch": 8,
+        "loss_path": 0.0,
+        "loss_fit": 0.10187382817501202,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.83283804714867
+      },
+      {
+        "epoch": 9,
+        "loss_path": 0.0,
+        "loss_fit": 0.09007179511439366,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8288424246679734
+      },
+      {
+        "epoch": 10,
+        "loss_path": 0.0,
+        "loss_fit": 0.09394799690965253,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8152171620214126
+      },
+      {
+        "epoch": 11,
+        "loss_path": 0.0,
+        "loss_fit": 0.08670437488607907,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8216917865537309
+      },
+      {
+        "epoch": 12,
+        "loss_path": 0.0,
+        "loss_fit": 0.08606970381128273,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8349372793437565
+      },
+      {
+        "epoch": 13,
+        "loss_path": 0.0,
+        "loss_fit": 0.09073918411855629,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.81475562840545
+      },
+      {
+        "epoch": 14,
+        "loss_path": 0.0,
+        "loss_fit": 0.08523810428800062,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8217492168103182
+      },
+      {
+        "epoch": 15,
+        "loss_path": 0.0,
+        "loss_fit": 0.07945138530728096,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8308434909518342
+      },
+      {
+        "epoch": 16,
+        "loss_path": 0.0,
+        "loss_fit": 0.08489397243790639,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8424849060666557
+      },
+      {
+        "epoch": 17,
+        "loss_path": 0.0,
+        "loss_fit": 0.07700311246483277,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8381193383439688
+      },
+      {
+        "epoch": 18,
+        "loss_path": 0.0,
+        "loss_fit": 0.07918544661001457,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.844329694922563
+      },
+      {
+        "epoch": 19,
+        "loss_path": 0.0,
+        "loss_fit": 0.08403741309040924,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8386949469919478
+      },
+      {
+        "epoch": 20,
+        "loss_path": 0.0,
+        "loss_fit": 0.06662268652934775,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8329928748460151
+      },
+      {
+        "epoch": 21,
+        "loss_path": 0.0,
+        "loss_fit": 0.06916398905411673,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8373479142354887
+      },
+      {
+        "epoch": 22,
+        "loss_path": 0.0,
+        "loss_fit": 0.07657484844094142,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8318473094066338
+      },
+      {
+        "epoch": 23,
+        "loss_path": 0.0,
+        "loss_fit": 0.07087985148626709,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.83400195818721
+      },
+      {
+        "epoch": 24,
+        "loss_path": 0.0,
+        "loss_fit": 0.06264592395963821,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8422458732458299
+      },
+      {
+        "epoch": 25,
+        "loss_path": 0.0,
+        "loss_fit": 0.07075950941100018,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8442725613572739
+      },
+      {
+        "epoch": 26,
+        "loss_path": 0.0,
+        "loss_fit": 0.07612619532408038,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8426703463943858
+      },
+      {
+        "epoch": 27,
+        "loss_path": 0.0,
+        "loss_fit": 0.07320984742478079,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8437307584309617
+      },
+      {
+        "epoch": 28,
+        "loss_path": 0.0,
+        "loss_fit": 0.06499521454446949,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8449422271507042
+      },
+      {
+        "epoch": 29,
+        "loss_path": 0.0,
+        "loss_fit": 0.06378729639667048,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8442337379472576
+      },
+      {
+        "epoch": 30,
+        "loss_path": 0.0,
+        "loss_fit": 0.07088781985124418,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8452158045805177
+      },
+      {
+        "epoch": 31,
+        "loss_path": 0.0,
+        "loss_fit": 0.0672767061318397,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8448936351857742
+      },
+      {
+        "epoch": 32,
+        "loss_path": 0.0,
+        "loss_fit": 0.06551701362477616,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8410939910349415
+      },
+      {
+        "epoch": 33,
+        "loss_path": 0.0,
+        "loss_fit": 0.06885025431518443,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8438947479814112
+      },
+      {
+        "epoch": 34,
+        "loss_path": 0.0,
+        "loss_fit": 0.06477573429680585,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8448540208697446
+      },
+      {
+        "epoch": 35,
+        "loss_path": 0.0,
+        "loss_fit": 0.0603398800270467,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8449756162415557
+      },
+      {
+        "epoch": 36,
+        "loss_path": 0.0,
+        "loss_fit": 0.06374947416610667,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8452113387349663
+      },
+      {
+        "epoch": 37,
+        "loss_path": 0.0,
+        "loss_fit": 0.06267200465896167,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8449729985851218
+      },
+      {
+        "epoch": 38,
+        "loss_path": 0.0,
+        "loss_fit": 0.06854026339385504,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.845172641865017
+      },
+      {
+        "epoch": 39,
+        "loss_path": 0.0,
+        "loss_fit": 0.060730509523217124,
+        "val_per_gene_auroc": NaN,
+        "val_fitness_rho": 0.8451931935687955
+      }
+    ],
+    "best_epoch": 30
+  },
+  "all_test": {
+    "n": 6784,
+    "spearman": 0.7703151856331578,
+    "zero_shot": 0.7246614736577824
+  },
+  "strict_test": {
+    "n": 1220,
+    "spearman": 0.7063730228776476,
+    "zero_shot": 0.7292262495772414
+  }
+}

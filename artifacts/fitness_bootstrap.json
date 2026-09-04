@@ -1,0 +1,50 @@
+{
+  "question": "does supervised training beat zero-shot on GRB2 fitness?",
+  "test_set": {
+    "n": 1220,
+    "definition": "held-out positions with no position seen in training"
+  },
+  "spearman": {
+    "zero_shot": {
+      "rho": 0.7292,
+      "ci95": [
+        0.7007,
+        0.7566
+      ]
+    },
+    "multi_task": {
+      "rho": 0.7427,
+      "ci95": [
+        0.713,
+        0.768
+      ]
+    },
+    "fitness_only": {
+      "rho": 0.7064,
+      "ci95": [
+        0.6746,
+        0.7358
+      ]
+    }
+  },
+  "paired_delta_vs_zero_shot": {
+    "multi_task": {
+      "delta": 0.013,
+      "ci95": [
+        -0.0277,
+        0.051
+      ],
+      "distinguishable": false
+    },
+    "fitness_only": {
+      "delta": -0.0224,
+      "ci95": [
+        -0.0658,
+        0.0191
+      ],
+      "distinguishable": false
+    }
+  },
+  "conclusion": "On genuinely novel positions neither supervised model is distinguishable from zero-shot ESM-2 scoring. The +0.045 seen on the headline test set came from position leakage: 82% of those variants share a partner position with training. The fitness-only specialist is best on the leaky metric and worst on the clean one, which is the signature of fitting position identity.",
+  "method": "2000 paired bootstrap resamples of the 1220 test variants"
+}

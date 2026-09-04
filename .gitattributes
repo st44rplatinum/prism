@@ -1,0 +1,10 @@
+# Normalise line endings so a Linux contributor does not see every file as
+# rewritten. Binary artefacts are declared so Git never tries.
+* text=auto eol=lf
+
+*.png binary
+*.pt binary
+*.h5 binary
+*.npy binary
+*.parquet binary
+*.gz binary

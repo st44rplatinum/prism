@@ -1,0 +1,2480 @@
+{
+  "dataset": {
+    "n_variants": 29088,
+    "n_genes": 183,
+    "pathogenic_fraction": 0.701
+  },
+  "spearman_wt_vs_masked": 0.9879,
+  "compute_minutes": {
+    "wt": 4.1,
+    "masked": 111.8
+  },
+  "all_variants": [
+    {
+      "score": "esm_masked",
+      "n": 29088,
+      "pooled_auroc": 0.8458,
+      "pooled_auprc": 0.9369,
+      "auprc_lift": 1.336,
+      "per_gene_auroc": 0.8306,
+      "per_gene_std": 0.1472,
+      "n_genes": 150
+    },
+    {
+      "score": "esm_wt",
+      "n": 29088,
+      "pooled_auroc": 0.8418,
+      "pooled_auprc": 0.9349,
+      "auprc_lift": 1.334,
+      "per_gene_auroc": 0.8242,
+      "per_gene_std": 0.1491,
+      "n_genes": 150
+    },
+    {
+      "score": "blosum62",
+      "n": 29088,
+      "pooled_auroc": 0.6962,
+      "pooled_auprc": 0.8107,
+      "auprc_lift": 1.156,
+      "per_gene_auroc": 0.6997,
+      "per_gene_std": 0.1046,
+      "n_genes": 150
+    }
+  ],
+  "test_genes": [
+    {
+      "score": "esm_masked",
+      "n": 5814,
+      "pooled_auroc": 0.8422,
+      "pooled_auprc": 0.9329,
+      "auprc_lift": 1.336,
+      "per_gene_auroc": 0.8435,
+      "per_gene_std": 0.1303,
+      "n_genes": 34
+    },
+    {
+      "score": "esm_wt",
+      "n": 5814,
+      "pooled_auroc": 0.8408,
+      "pooled_auprc": 0.9317,
+      "auprc_lift": 1.334,
+      "per_gene_auroc": 0.8381,
+      "per_gene_std": 0.1323,
+      "n_genes": 34
+    },
+    {
+      "score": "blosum62",
+      "n": 5814,
+      "pooled_auroc": 0.6879,
+      "pooled_auprc": 0.806,
+      "auprc_lift": 1.154,
+      "per_gene_auroc": 0.7227,
+      "per_gene_std": 0.1074,
+      "n_genes": 34
+    }
+  ],
+  "per_gene_esm_wt": [
+    {
+      "gene": "KCNJ2",
+      "n": 52,
+      "n_pathogenic": 48,
+      "base_rate": 0.923,
+      "auroc": 1.0,
+      "auprc": 1.0
+    },
+    {
+      "gene": "SDHD",
+      "n": 29,
+      "n_pathogenic": 25,
+      "base_rate": 0.862,
+      "auroc": 1.0,
+      "auprc": 1.0
+    },
+    {
+      "gene": "PMP22",
+      "n": 33,
+      "n_pathogenic": 30,
+      "base_rate": 0.909,
+      "auroc": 1.0,
+      "auprc": 1.0
+    },
+    {
+      "gene": "POLD1",
+      "n": 47,
+      "n_pathogenic": 4,
+      "base_rate": 0.085,
+      "auroc": 1.0,
+      "auprc": 1.0
+    },
+    {
+      "gene": "DPYD",
+      "n": 12,
+      "n_pathogenic": 7,
+      "base_rate": 0.583,
+      "auroc": 1.0,
+      "auprc": 1.0
+    },
+    {
+      "gene": "STK11",
+      "n": 52,
+      "n_pathogenic": 38,
+      "base_rate": 0.731,
+      "auroc": 0.9962,
+      "auprc": 0.9987
+    },
+    {
+      "gene": "COL3A1",
+      "n": 453,
+      "n_pathogenic": 434,
+      "base_rate": 0.958,
+      "auroc": 0.9948,
+      "auprc": 0.9998
+    },
+    {
+      "gene": "COL4A5",
+      "n": 708,
+      "n_pathogenic": 624,
+      "base_rate": 0.881,
+      "auroc": 0.9932,
+      "auprc": 0.9991
+    },
+    {
+      "gene": "HADHA",
+      "n": 26,
+      "n_pathogenic": 18,
+      "base_rate": 0.692,
+      "auroc": 0.9931,
+      "auprc": 0.9971
+    },
+    {
+      "gene": "COL2A1",
+      "n": 575,
+      "n_pathogenic": 449,
+      "base_rate": 0.781,
+      "auroc": 0.9881,
+      "auprc": 0.9963
+    },
+    {
+      "gene": "COL1A2",
+      "n": 524,
+      "n_pathogenic": 510,
+      "base_rate": 0.973,
+      "auroc": 0.988,
+      "auprc": 0.9997
+    },
+    {
+      "gene": "CHEK2",
+      "n": 17,
+      "n_pathogenic": 7,
+      "base_rate": 0.412,
+      "auroc": 0.9857,
+      "auprc": 0.9821
+    },
+    {
+      "gene": "SDHA",
+      "n": 46,
+      "n_pathogenic": 23,
+      "base_rate": 0.5,
+      "auroc": 0.9811,
+      "auprc": 0.9868
+    },
+    {
+      "gene": "IL2RG",
+      "n": 72,
+      "n_pathogenic": 49,
+      "base_rate": 0.681,
+      "auroc": 0.9805,
+      "auprc": 0.9927
+    },
+    {
+      "gene": "CDKL5",
+      "n": 193,
+      "n_pathogenic": 115,
+      "base_rate": 0.596,
+      "auroc": 0.9802,
+      "auprc": 0.9865
+    },
+    {
+      "gene": "BMPR1A",
+      "n": 28,
+      "n_pathogenic": 24,
+      "base_rate": 0.857,
+      "auroc": 0.9792,
+      "auprc": 0.9968
+    },
+    {
+      "gene": "FBN1",
+      "n": 1431,
+      "n_pathogenic": 1367,
+      "base_rate": 0.955,
+      "auroc": 0.9761,
+      "auprc": 0.9984
+    },
+    {
+      "gene": "PTEN",
+      "n": 262,
+      "n_pathogenic": 253,
+      "base_rate": 0.966,
+      "auroc": 0.9745,
+      "auprc": 0.9991
+    },
+    {
+      "gene": "COL1A1",
+      "n": 517,
+      "n_pathogenic": 436,
+      "base_rate": 0.843,
+      "auroc": 0.9664,
+      "auprc": 0.9941
+    },
+    {
+      "gene": "DICER1",
+      "n": 105,
+      "n_pathogenic": 37,
+      "base_rate": 0.352,
+      "auroc": 0.9654,
+      "auprc": 0.962
+    },
+    {
+      "gene": "DSG2",
+      "n": 46,
+      "n_pathogenic": 7,
+      "base_rate": 0.152,
+      "auroc": 0.9634,
+      "auprc": 0.8558
+    },
+    {
+      "gene": "GRIN2A",
+      "n": 286,
+      "n_pathogenic": 107,
+      "base_rate": 0.374,
+      "auroc": 0.9571,
+      "auprc": 0.9533
+    },
+    {
+      "gene": "PMS2",
+      "n": 79,
+      "n_pathogenic": 33,
+      "base_rate": 0.418,
+      "auroc": 0.9565,
+      "auprc": 0.96
+    },
+    {
+      "gene": "RPGR",
+      "n": 92,
+      "n_pathogenic": 45,
+      "base_rate": 0.489,
+      "auroc": 0.9556,
+      "auprc": 0.9703
+    },
+    {
+      "gene": "MITF",
+      "n": 27,
+      "n_pathogenic": 21,
+      "base_rate": 0.778,
+      "auroc": 0.9524,
+      "auprc": 0.9894
+    },
+    {
+      "gene": "ITGA2B",
+      "n": 87,
+      "n_pathogenic": 77,
+      "base_rate": 0.885,
+      "auroc": 0.9494,
+      "auprc": 0.9935
+    },
+    {
+      "gene": "RAD51C",
+      "n": 86,
+      "n_pathogenic": 17,
+      "base_rate": 0.198,
+      "auroc": 0.9463,
+      "auprc": 0.8817
+    },
+    {
+      "gene": "MSH6",
+      "n": 144,
+      "n_pathogenic": 67,
+      "base_rate": 0.465,
+      "auroc": 0.9448,
+      "auprc": 0.9554
+    },
+    {
+      "gene": "CFTR",
+      "n": 255,
+      "n_pathogenic": 239,
+      "base_rate": 0.937,
+      "auroc": 0.9443,
+      "auprc": 0.9962
+    },
+    {
+      "gene": "ADA",
+      "n": 55,
+      "n_pathogenic": 47,
+      "base_rate": 0.855,
+      "auroc": 0.9441,
+      "auprc": 0.9904
+    },
+    {
+      "gene": "SMPD1",
+      "n": 153,
+      "n_pathogenic": 140,
+      "base_rate": 0.915,
+      "auroc": 0.9341,
+      "auprc": 0.994
+    },
+    {
+      "gene": "PTCH1",
+      "n": 171,
+      "n_pathogenic": 46,
+      "base_rate": 0.269,
+      "auroc": 0.9337,
+      "auprc": 0.871
+    },
+    {
+      "gene": "GAA",
+      "n": 261,
+      "n_pathogenic": 240,
+      "base_rate": 0.92,
+      "auroc": 0.9331,
+      "auprc": 0.994
+    },
+    {
+      "gene": "FGFR2",
+      "n": 96,
+      "n_pathogenic": 84,
+      "base_rate": 0.875,
+      "auroc": 0.9325,
+      "auprc": 0.9905
+    },
+    {
+      "gene": "BTK",
+      "n": 112,
+      "n_pathogenic": 98,
+      "base_rate": 0.875,
+      "auroc": 0.9322,
+      "auprc": 0.9908
+    },
+    {
+      "gene": "WT1",
+      "n": 55,
+      "n_pathogenic": 44,
+      "base_rate": 0.8,
+      "auroc": 0.9318,
+      "auprc": 0.9845
+    },
+    {
+      "gene": "GRN",
+      "n": 16,
+      "n_pathogenic": 5,
+      "base_rate": 0.312,
+      "auroc": 0.9273,
+      "auprc": 0.9111
+    },
+    {
+      "gene": "MSH2",
+      "n": 438,
+      "n_pathogenic": 142,
+      "base_rate": 0.324,
+      "auroc": 0.9265,
+      "auprc": 0.9056
+    },
+    {
+      "gene": "WAS",
+      "n": 62,
+      "n_pathogenic": 41,
+      "base_rate": 0.661,
+      "auroc": 0.9245,
+      "auprc": 0.9626
+    },
+    {
+      "gene": "LDLR",
+      "n": 704,
+      "n_pathogenic": 667,
+      "base_rate": 0.947,
+      "auroc": 0.9226,
+      "auprc": 0.9949
+    },
+    {
+      "gene": "MYO7A",
+      "n": 202,
+      "n_pathogenic": 166,
+      "base_rate": 0.822,
+      "auroc": 0.9182,
+      "auprc": 0.9814
+    },
+    {
+      "gene": "GRIN2B",
+      "n": 283,
+      "n_pathogenic": 145,
+      "base_rate": 0.512,
+      "auroc": 0.9176,
+      "auprc": 0.936
+    },
+    {
+      "gene": "TCOF1",
+      "n": 73,
+      "n_pathogenic": 8,
+      "base_rate": 0.11,
+      "auroc": 0.9173,
+      "auprc": 0.649
+    },
+    {
+      "gene": "FMR1",
+      "n": 15,
+      "n_pathogenic": 3,
+      "base_rate": 0.2,
+      "auroc": 0.9167,
+      "auprc": 0.8333
+    },
+    {
+      "gene": "TNFRSF1A",
+      "n": 38,
+      "n_pathogenic": 25,
+      "base_rate": 0.658,
+      "auroc": 0.9138,
+      "auprc": 0.9651
+    },
+    {
+      "gene": "MUTYH",
+      "n": 201,
+      "n_pathogenic": 57,
+      "base_rate": 0.284,
+      "auroc": 0.913,
+      "auprc": 0.8985
+    },
+    {
+      "gene": "MLH1",
+      "n": 221,
+      "n_pathogenic": 185,
+      "base_rate": 0.837,
+      "auroc": 0.9126,
+      "auprc": 0.9804
+    },
+    {
+      "gene": "BRIP1",
+      "n": 61,
+      "n_pathogenic": 9,
+      "base_rate": 0.148,
+      "auroc": 0.9124,
+      "auprc": 0.8432
+    },
+    {
+      "gene": "GLA",
+      "n": 566,
+      "n_pathogenic": 561,
+      "base_rate": 0.991,
+      "auroc": 0.9098,
+      "auprc": 0.9991
+    },
+    {
+      "gene": "USH2A",
+      "n": 438,
+      "n_pathogenic": 304,
+      "base_rate": 0.694,
+      "auroc": 0.9092,
+      "auprc": 0.9634
+    },
+    {
+      "gene": "BRCA1",
+      "n": 656,
+      "n_pathogenic": 211,
+      "base_rate": 0.322,
+      "auroc": 0.9076,
+      "auprc": 0.8934
+    },
+    {
+      "gene": "G6PD",
+      "n": 155,
+      "n_pathogenic": 151,
+      "base_rate": 0.974,
+      "auroc": 0.9056,
+      "auprc": 0.9973
+    },
+    {
+      "gene": "PKP2",
+      "n": 37,
+      "n_pathogenic": 12,
+      "base_rate": 0.324,
+      "auroc": 0.9033,
+      "auprc": 0.8738
+    },
+    {
+      "gene": "ACADVL",
+      "n": 152,
+      "n_pathogenic": 146,
+      "base_rate": 0.961,
+      "auroc": 0.8973,
+      "auprc": 0.9955
+    },
+    {
+      "gene": "PEX1",
+      "n": 48,
+      "n_pathogenic": 24,
+      "base_rate": 0.5,
+      "auroc": 0.8958,
+      "auprc": 0.9169
+    },
+    {
+      "gene": "BRCA2",
+      "n": 814,
+      "n_pathogenic": 114,
+      "base_rate": 0.14,
+      "auroc": 0.8935,
+      "auprc": 0.7983
+    },
+    {
+      "gene": "TGFBR2",
+      "n": 108,
+      "n_pathogenic": 98,
+      "base_rate": 0.907,
+      "auroc": 0.8929,
+      "auprc": 0.9887
+    },
+    {
+      "gene": "STXBP1",
+      "n": 170,
+      "n_pathogenic": 120,
+      "base_rate": 0.706,
+      "auroc": 0.8897,
+      "auprc": 0.9563
+    },
+    {
+      "gene": "NPC1",
+      "n": 212,
+      "n_pathogenic": 197,
+      "base_rate": 0.929,
+      "auroc": 0.889,
+      "auprc": 0.991
+    },
+    {
+      "gene": "PAX6",
+      "n": 66,
+      "n_pathogenic": 61,
+      "base_rate": 0.924,
+      "auroc": 0.8885,
+      "auprc": 0.991
+    },
+    {
+      "gene": "RS1",
+      "n": 148,
+      "n_pathogenic": 139,
+      "base_rate": 0.939,
+      "auroc": 0.8849,
+      "auprc": 0.9921
+    },
+    {
+      "gene": "SDHB",
+      "n": 81,
+      "n_pathogenic": 75,
+      "base_rate": 0.926,
+      "auroc": 0.8844,
+      "auprc": 0.9905
+    },
+    {
+      "gene": "CDKN2A",
+      "n": 51,
+      "n_pathogenic": 37,
+      "base_rate": 0.725,
+      "auroc": 0.8842,
+      "auprc": 0.9567
+    },
+    {
+      "gene": "SYNGAP1",
+      "n": 186,
+      "n_pathogenic": 60,
+      "base_rate": 0.323,
+      "auroc": 0.8796,
+      "auprc": 0.8437
+    },
+    {
+      "gene": "GLB1",
+      "n": 151,
+      "n_pathogenic": 137,
+      "base_rate": 0.907,
+      "auroc": 0.8733,
+      "auprc": 0.9858
+    },
+    {
+      "gene": "ABCD1",
+      "n": 280,
+      "n_pathogenic": 211,
+      "base_rate": 0.754,
+      "auroc": 0.8729,
+      "auprc": 0.9576
+    },
+    {
+      "gene": "POLG",
+      "n": 130,
+      "n_pathogenic": 112,
+      "base_rate": 0.862,
+      "auroc": 0.872,
+      "auprc": 0.9776
+    },
+    {
+      "gene": "VWF",
+      "n": 191,
+      "n_pathogenic": 153,
+      "base_rate": 0.801,
+      "auroc": 0.8713,
+      "auprc": 0.9666
+    },
+    {
+      "gene": "ATP7B",
+      "n": 223,
+      "n_pathogenic": 198,
+      "base_rate": 0.888,
+      "auroc": 0.8703,
+      "auprc": 0.9781
+    },
+    {
+      "gene": "ALK",
+      "n": 84,
+      "n_pathogenic": 4,
+      "base_rate": 0.048,
+      "auroc": 0.8688,
+      "auprc": 0.493
+    },
+    {
+      "gene": "BEST1",
+      "n": 223,
+      "n_pathogenic": 219,
+      "base_rate": 0.982,
+      "auroc": 0.8664,
+      "auprc": 0.9974
+    },
+    {
+      "gene": "FGFR3",
+      "n": 68,
+      "n_pathogenic": 42,
+      "base_rate": 0.618,
+      "auroc": 0.8599,
+      "auprc": 0.929
+    },
+    {
+      "gene": "CACNA1S",
+      "n": 88,
+      "n_pathogenic": 19,
+      "base_rate": 0.216,
+      "auroc": 0.8566,
+      "auprc": 0.773
+    },
+    {
+      "gene": "SHANK3",
+      "n": 66,
+      "n_pathogenic": 15,
+      "base_rate": 0.227,
+      "auroc": 0.8549,
+      "auprc": 0.7582
+    },
+    {
+      "gene": "CDH1",
+      "n": 176,
+      "n_pathogenic": 19,
+      "base_rate": 0.108,
+      "auroc": 0.8528,
+      "auprc": 0.4288
+    },
+    {
+      "gene": "CRB1",
+      "n": 171,
+      "n_pathogenic": 153,
+      "base_rate": 0.895,
+      "auroc": 0.8471,
+      "auprc": 0.9789
+    },
+    {
+      "gene": "TP53",
+      "n": 373,
+      "n_pathogenic": 222,
+      "base_rate": 0.595,
+      "auroc": 0.8423,
+      "auprc": 0.909
+    },
+    {
+      "gene": "KCNH2",
+      "n": 182,
+      "n_pathogenic": 169,
+      "base_rate": 0.929,
+      "auroc": 0.8421,
+      "auprc": 0.9873
+    },
+    {
+      "gene": "TSC1",
+      "n": 106,
+      "n_pathogenic": 20,
+      "base_rate": 0.189,
+      "auroc": 0.8419,
+      "auprc": 0.8195
+    },
+    {
+      "gene": "PALB2",
+      "n": 82,
+      "n_pathogenic": 9,
+      "base_rate": 0.11,
+      "auroc": 0.8417,
+      "auprc": 0.7719
+    },
+    {
+      "gene": "UBE3A",
+      "n": 48,
+      "n_pathogenic": 40,
+      "base_rate": 0.833,
+      "auroc": 0.8406,
+      "auprc": 0.97
+    },
+    {
+      "gene": "F8",
+      "n": 332,
+      "n_pathogenic": 295,
+      "base_rate": 0.889,
+      "auroc": 0.8406,
+      "auprc": 0.9779
+    },
+    {
+      "gene": "RAG1",
+      "n": 80,
+      "n_pathogenic": 62,
+      "base_rate": 0.775,
+      "auroc": 0.8387,
+      "auprc": 0.9518
+    },
+    {
+      "gene": "FH",
+      "n": 169,
+      "n_pathogenic": 163,
+      "base_rate": 0.964,
+      "auroc": 0.8364,
+      "auprc": 0.9934
+    },
+    {
+      "gene": "OTC",
+      "n": 150,
+      "n_pathogenic": 140,
+      "base_rate": 0.933,
+      "auroc": 0.8329,
+      "auprc": 0.9835
+    },
+    {
+      "gene": "POLE",
+      "n": 75,
+      "n_pathogenic": 11,
+      "base_rate": 0.147,
+      "auroc": 0.831,
+      "auprc": 0.7653
+    },
+    {
+      "gene": "F9",
+      "n": 182,
+      "n_pathogenic": 161,
+      "base_rate": 0.885,
+      "auroc": 0.8299,
+      "auprc": 0.9767
+    },
+    {
+      "gene": "OPA1",
+      "n": 90,
+      "n_pathogenic": 51,
+      "base_rate": 0.567,
+      "auroc": 0.8291,
+      "auprc": 0.8942
+    },
+    {
+      "gene": "MYH11",
+      "n": 23,
+      "n_pathogenic": 4,
+      "base_rate": 0.174,
+      "auroc": 0.8289,
+      "auprc": 0.8088
+    },
+    {
+      "gene": "RB1",
+      "n": 101,
+      "n_pathogenic": 37,
+      "base_rate": 0.366,
+      "auroc": 0.8288,
+      "auprc": 0.8117
+    },
+    {
+      "gene": "LRRK2",
+      "n": 76,
+      "n_pathogenic": 6,
+      "base_rate": 0.079,
+      "auroc": 0.8238,
+      "auprc": 0.6185
+    },
+    {
+      "gene": "SERPINC1",
+      "n": 70,
+      "n_pathogenic": 60,
+      "base_rate": 0.857,
+      "auroc": 0.8233,
+      "auprc": 0.9633
+    },
+    {
+      "gene": "MECP2",
+      "n": 301,
+      "n_pathogenic": 126,
+      "base_rate": 0.419,
+      "auroc": 0.822,
+      "auprc": 0.8228
+    },
+    {
+      "gene": "CHD8",
+      "n": 137,
+      "n_pathogenic": 33,
+      "base_rate": 0.241,
+      "auroc": 0.8147,
+      "auprc": 0.7179
+    },
+    {
+      "gene": "PRKN",
+      "n": 30,
+      "n_pathogenic": 16,
+      "base_rate": 0.533,
+      "auroc": 0.8125,
+      "auprc": 0.892
+    },
+    {
+      "gene": "ABCA4",
+      "n": 647,
+      "n_pathogenic": 616,
+      "base_rate": 0.952,
+      "auroc": 0.8089,
+      "auprc": 0.9889
+    },
+    {
+      "gene": "SERPINA1",
+      "n": 53,
+      "n_pathogenic": 14,
+      "base_rate": 0.264,
+      "auroc": 0.8077,
+      "auprc": 0.7131
+    },
+    {
+      "gene": "CPT2",
+      "n": 40,
+      "n_pathogenic": 30,
+      "base_rate": 0.75,
+      "auroc": 0.8067,
+      "auprc": 0.9302
+    },
+    {
+      "gene": "SCN1A",
+      "n": 1026,
+      "n_pathogenic": 965,
+      "base_rate": 0.941,
+      "auroc": 0.8064,
+      "auprc": 0.9854
+    },
+    {
+      "gene": "SCN2A",
+      "n": 380,
+      "n_pathogenic": 351,
+      "base_rate": 0.924,
+      "auroc": 0.8052,
+      "auprc": 0.9813
+    },
+    {
+      "gene": "KCNQ1",
+      "n": 230,
+      "n_pathogenic": 216,
+      "base_rate": 0.939,
+      "auroc": 0.8022,
+      "auprc": 0.9861
+    },
+    {
+      "gene": "HEXA",
+      "n": 67,
+      "n_pathogenic": 63,
+      "base_rate": 0.94,
+      "auroc": 0.7976,
+      "auprc": 0.9836
+    },
+    {
+      "gene": "CACNA1C",
+      "n": 114,
+      "n_pathogenic": 48,
+      "base_rate": 0.421,
+      "auroc": 0.7967,
+      "auprc": 0.8281
+    },
+    {
+      "gene": "TGFBR1",
+      "n": 55,
+      "n_pathogenic": 49,
+      "base_rate": 0.891,
+      "auroc": 0.7959,
+      "auprc": 0.9735
+    },
+    {
+      "gene": "RHO",
+      "n": 126,
+      "n_pathogenic": 119,
+      "base_rate": 0.944,
+      "auroc": 0.7935,
+      "auprc": 0.9714
+    },
+    {
+      "gene": "KIT",
+      "n": 43,
+      "n_pathogenic": 21,
+      "base_rate": 0.488,
+      "auroc": 0.7922,
+      "auprc": 0.8333
+    },
+    {
+      "gene": "IDUA",
+      "n": 116,
+      "n_pathogenic": 102,
+      "base_rate": 0.879,
+      "auroc": 0.7833,
+      "auprc": 0.9625
+    },
+    {
+      "gene": "MAPT",
+      "n": 41,
+      "n_pathogenic": 16,
+      "base_rate": 0.39,
+      "auroc": 0.7825,
+      "auprc": 0.7678
+    },
+    {
+      "gene": "ATM",
+      "n": 258,
+      "n_pathogenic": 95,
+      "base_rate": 0.368,
+      "auroc": 0.7818,
+      "auprc": 0.7704
+    },
+    {
+      "gene": "HBA1",
+      "n": 34,
+      "n_pathogenic": 18,
+      "base_rate": 0.529,
+      "auroc": 0.7812,
+      "auprc": 0.7577
+    },
+    {
+      "gene": "GJB1",
+      "n": 150,
+      "n_pathogenic": 147,
+      "base_rate": 0.98,
+      "auroc": 0.7778,
+      "auprc": 0.9949
+    },
+    {
+      "gene": "DMD",
+      "n": 380,
+      "n_pathogenic": 24,
+      "base_rate": 0.063,
+      "auroc": 0.7761,
+      "auprc": 0.4256
+    },
+    {
+      "gene": "NF1",
+      "n": 498,
+      "n_pathogenic": 409,
+      "base_rate": 0.821,
+      "auroc": 0.7723,
+      "auprc": 0.9472
+    },
+    {
+      "gene": "PRKAG2",
+      "n": 33,
+      "n_pathogenic": 20,
+      "base_rate": 0.606,
+      "auroc": 0.7654,
+      "auprc": 0.8788
+    },
+    {
+      "gene": "RYR2",
+      "n": 281,
+      "n_pathogenic": 229,
+      "base_rate": 0.815,
+      "auroc": 0.7646,
+      "auprc": 0.9418
+    },
+    {
+      "gene": "MTHFR",
+      "n": 51,
+      "n_pathogenic": 41,
+      "base_rate": 0.804,
+      "auroc": 0.761,
+      "auprc": 0.9417
+    },
+    {
+      "gene": "ARID1B",
+      "n": 304,
+      "n_pathogenic": 19,
+      "base_rate": 0.062,
+      "auroc": 0.7599,
+      "auprc": 0.4971
+    },
+    {
+      "gene": "FLCN",
+      "n": 24,
+      "n_pathogenic": 12,
+      "base_rate": 0.5,
+      "auroc": 0.7569,
+      "auprc": 0.8023
+    },
+    {
+      "gene": "SCN5A",
+      "n": 138,
+      "n_pathogenic": 110,
+      "base_rate": 0.797,
+      "auroc": 0.7503,
+      "auprc": 0.9322
+    },
+    {
+      "gene": "CHD7",
+      "n": 388,
+      "n_pathogenic": 76,
+      "base_rate": 0.196,
+      "auroc": 0.7402,
+      "auprc": 0.6089
+    },
+    {
+      "gene": "MYH7",
+      "n": 372,
+      "n_pathogenic": 352,
+      "base_rate": 0.946,
+      "auroc": 0.7342,
+      "auprc": 0.9784
+    },
+    {
+      "gene": "SCN8A",
+      "n": 297,
+      "n_pathogenic": 258,
+      "base_rate": 0.869,
+      "auroc": 0.7336,
+      "auprc": 0.9487
+    },
+    {
+      "gene": "PCSK9",
+      "n": 33,
+      "n_pathogenic": 7,
+      "base_rate": 0.212,
+      "auroc": 0.7198,
+      "auprc": 0.4579
+    },
+    {
+      "gene": "TNNT2",
+      "n": 48,
+      "n_pathogenic": 45,
+      "base_rate": 0.938,
+      "auroc": 0.7185,
+      "auprc": 0.9676
+    },
+    {
+      "gene": "GJB2",
+      "n": 146,
+      "n_pathogenic": 137,
+      "base_rate": 0.938,
+      "auroc": 0.717,
+      "auprc": 0.9776
+    },
+    {
+      "gene": "KCNQ2",
+      "n": 371,
+      "n_pathogenic": 357,
+      "base_rate": 0.962,
+      "auroc": 0.7091,
+      "auprc": 0.9861
+    },
+    {
+      "gene": "HBB",
+      "n": 87,
+      "n_pathogenic": 72,
+      "base_rate": 0.828,
+      "auroc": 0.7028,
+      "auprc": 0.894
+    },
+    {
+      "gene": "MYBPC3",
+      "n": 67,
+      "n_pathogenic": 33,
+      "base_rate": 0.493,
+      "auroc": 0.7014,
+      "auprc": 0.764
+    },
+    {
+      "gene": "APC",
+      "n": 86,
+      "n_pathogenic": 20,
+      "base_rate": 0.233,
+      "auroc": 0.6955,
+      "auprc": 0.4939
+    },
+    {
+      "gene": "CASQ2",
+      "n": 14,
+      "n_pathogenic": 7,
+      "base_rate": 0.5,
+      "auroc": 0.6939,
+      "auprc": 0.8079
+    },
+    {
+      "gene": "RYR1",
+      "n": 280,
+      "n_pathogenic": 223,
+      "base_rate": 0.796,
+      "auroc": 0.6855,
+      "auprc": 0.9
+    },
+    {
+      "gene": "PINK1",
+      "n": 15,
+      "n_pathogenic": 4,
+      "base_rate": 0.267,
+      "auroc": 0.6818,
+      "auprc": 0.6667
+    },
+    {
+      "gene": "VHL",
+      "n": 193,
+      "n_pathogenic": 158,
+      "base_rate": 0.819,
+      "auroc": 0.6717,
+      "auprc": 0.9088
+    },
+    {
+      "gene": "RAG2",
+      "n": 76,
+      "n_pathogenic": 67,
+      "base_rate": 0.882,
+      "auroc": 0.6517,
+      "auprc": 0.9487
+    },
+    {
+      "gene": "TSC2",
+      "n": 373,
+      "n_pathogenic": 181,
+      "base_rate": 0.485,
+      "auroc": 0.6409,
+      "auprc": 0.6885
+    },
+    {
+      "gene": "DSP",
+      "n": 137,
+      "n_pathogenic": 17,
+      "base_rate": 0.124,
+      "auroc": 0.6373,
+      "auprc": 0.2032
+    },
+    {
+      "gene": "RET",
+      "n": 106,
+      "n_pathogenic": 61,
+      "base_rate": 0.575,
+      "auroc": 0.62,
+      "auprc": 0.7344
+    },
+    {
+      "gene": "NLRP3",
+      "n": 65,
+      "n_pathogenic": 55,
+      "base_rate": 0.846,
+      "auroc": 0.6091,
+      "auprc": 0.8899
+    },
+    {
+      "gene": "ASS1",
+      "n": 75,
+      "n_pathogenic": 70,
+      "base_rate": 0.933,
+      "auroc": 0.6086,
+      "auprc": 0.9637
+    },
+    {
+      "gene": "RUNX2",
+      "n": 42,
+      "n_pathogenic": 38,
+      "base_rate": 0.905,
+      "auroc": 0.5855,
+      "auprc": 0.9216
+    },
+    {
+      "gene": "ANK2",
+      "n": 145,
+      "n_pathogenic": 8,
+      "base_rate": 0.055,
+      "auroc": 0.5538,
+      "auprc": 0.1512
+    },
+    {
+      "gene": "MMACHC",
+      "n": 44,
+      "n_pathogenic": 39,
+      "base_rate": 0.886,
+      "auroc": 0.5385,
+      "auprc": 0.9092
+    },
+    {
+      "gene": "MEN1",
+      "n": 152,
+      "n_pathogenic": 145,
+      "base_rate": 0.954,
+      "auroc": 0.5172,
+      "auprc": 0.9662
+    },
+    {
+      "gene": "APP",
+      "n": 42,
+      "n_pathogenic": 21,
+      "base_rate": 0.5,
+      "auroc": 0.5102,
+      "auprc": 0.5467
+    },
+    {
+      "gene": "APOB",
+      "n": 378,
+      "n_pathogenic": 9,
+      "base_rate": 0.024,
+      "auroc": 0.5023,
+      "auprc": 0.0341
+    },
+    {
+      "gene": "PSEN1",
+      "n": 124,
+      "n_pathogenic": 120,
+      "base_rate": 0.968,
+      "auroc": 0.4312,
+      "auprc": 0.9684
+    },
+    {
+      "gene": "FUS",
+      "n": 27,
+      "n_pathogenic": 21,
+      "base_rate": 0.778,
+      "auroc": 0.3889,
+      "auprc": 0.792
+    },
+    {
+      "gene": "SMAD4",
+      "n": 33,
+      "n_pathogenic": 27,
+      "base_rate": 0.818,
+      "auroc": 0.3395,
+      "auprc": 0.8099
+    },
+    {
+      "gene": "MEFV",
+      "n": 15,
+      "n_pathogenic": 8,
+      "base_rate": 0.533,
+      "auroc": 0.2321,
+      "auprc": 0.44
+    },
+    {
+      "gene": "PSEN2",
+      "n": 14,
+      "n_pathogenic": 4,
+      "base_rate": 0.286,
+      "auroc": 0.175,
+      "auprc": 0.2229
+    }
+  ],
+  "per_gene_esm_masked": [
+    {
+      "gene": "SDHD",
+      "n": 29,
+      "n_pathogenic": 25,
+      "base_rate": 0.862,
+      "auroc": 1.0,
+      "auprc": 1.0
+    },
+    {
+      "gene": "POLD1",
+      "n": 47,
+      "n_pathogenic": 4,
+      "base_rate": 0.085,
+      "auroc": 1.0,
+      "auprc": 1.0
+    },
+    {
+      "gene": "PMP22",
+      "n": 33,
+      "n_pathogenic": 30,
+      "base_rate": 0.909,
+      "auroc": 1.0,
+      "auprc": 1.0
+    },
+    {
+      "gene": "KCNJ2",
+      "n": 52,
+      "n_pathogenic": 48,
+      "base_rate": 0.923,
+      "auroc": 1.0,
+      "auprc": 1.0
+    },
+    {
+      "gene": "DPYD",
+      "n": 12,
+      "n_pathogenic": 7,
+      "base_rate": 0.583,
+      "auroc": 1.0,
+      "auprc": 1.0
+    },
+    {
+      "gene": "CHEK2",
+      "n": 17,
+      "n_pathogenic": 7,
+      "base_rate": 0.412,
+      "auroc": 1.0,
+      "auprc": 1.0
+    },
+    {
+      "gene": "COL3A1",
+      "n": 453,
+      "n_pathogenic": 434,
+      "base_rate": 0.958,
+      "auroc": 0.9962,
+      "auprc": 0.9998
+    },
+    {
+      "gene": "STK11",
+      "n": 52,
+      "n_pathogenic": 38,
+      "base_rate": 0.731,
+      "auroc": 0.9962,
+      "auprc": 0.9987
+    },
+    {
+      "gene": "HADHA",
+      "n": 26,
+      "n_pathogenic": 18,
+      "base_rate": 0.692,
+      "auroc": 0.9931,
+      "auprc": 0.9971
+    },
+    {
+      "gene": "COL4A5",
+      "n": 708,
+      "n_pathogenic": 624,
+      "base_rate": 0.881,
+      "auroc": 0.9926,
+      "auprc": 0.999
+    },
+    {
+      "gene": "COL2A1",
+      "n": 575,
+      "n_pathogenic": 449,
+      "base_rate": 0.781,
+      "auroc": 0.9924,
+      "auprc": 0.998
+    },
+    {
+      "gene": "COL1A2",
+      "n": 524,
+      "n_pathogenic": 510,
+      "base_rate": 0.973,
+      "auroc": 0.9901,
+      "auprc": 0.9997
+    },
+    {
+      "gene": "IL2RG",
+      "n": 72,
+      "n_pathogenic": 49,
+      "base_rate": 0.681,
+      "auroc": 0.9849,
+      "auprc": 0.9941
+    },
+    {
+      "gene": "CDKL5",
+      "n": 193,
+      "n_pathogenic": 115,
+      "base_rate": 0.596,
+      "auroc": 0.9823,
+      "auprc": 0.9897
+    },
+    {
+      "gene": "FBN1",
+      "n": 1431,
+      "n_pathogenic": 1367,
+      "base_rate": 0.955,
+      "auroc": 0.9795,
+      "auprc": 0.9987
+    },
+    {
+      "gene": "PTEN",
+      "n": 262,
+      "n_pathogenic": 253,
+      "base_rate": 0.966,
+      "auroc": 0.9794,
+      "auprc": 0.9993
+    },
+    {
+      "gene": "BMPR1A",
+      "n": 28,
+      "n_pathogenic": 24,
+      "base_rate": 0.857,
+      "auroc": 0.9792,
+      "auprc": 0.9968
+    },
+    {
+      "gene": "DSG2",
+      "n": 46,
+      "n_pathogenic": 7,
+      "base_rate": 0.152,
+      "auroc": 0.9744,
+      "auprc": 0.9286
+    },
+    {
+      "gene": "SDHA",
+      "n": 46,
+      "n_pathogenic": 23,
+      "base_rate": 0.5,
+      "auroc": 0.9735,
+      "auprc": 0.9835
+    },
+    {
+      "gene": "COL1A1",
+      "n": 517,
+      "n_pathogenic": 436,
+      "base_rate": 0.843,
+      "auroc": 0.9696,
+      "auprc": 0.9948
+    },
+    {
+      "gene": "DICER1",
+      "n": 105,
+      "n_pathogenic": 37,
+      "base_rate": 0.352,
+      "auroc": 0.9658,
+      "auprc": 0.9665
+    },
+    {
+      "gene": "PMS2",
+      "n": 79,
+      "n_pathogenic": 33,
+      "base_rate": 0.418,
+      "auroc": 0.9585,
+      "auprc": 0.9619
+    },
+    {
+      "gene": "MSH6",
+      "n": 144,
+      "n_pathogenic": 67,
+      "base_rate": 0.465,
+      "auroc": 0.9566,
+      "auprc": 0.9649
+    },
+    {
+      "gene": "RPGR",
+      "n": 92,
+      "n_pathogenic": 45,
+      "base_rate": 0.489,
+      "auroc": 0.9565,
+      "auprc": 0.9706
+    },
+    {
+      "gene": "CFTR",
+      "n": 255,
+      "n_pathogenic": 239,
+      "base_rate": 0.937,
+      "auroc": 0.9537,
+      "auprc": 0.9969
+    },
+    {
+      "gene": "GRIN2A",
+      "n": 286,
+      "n_pathogenic": 107,
+      "base_rate": 0.374,
+      "auroc": 0.9533,
+      "auprc": 0.9528
+    },
+    {
+      "gene": "MITF",
+      "n": 27,
+      "n_pathogenic": 21,
+      "base_rate": 0.778,
+      "auroc": 0.9524,
+      "auprc": 0.9894
+    },
+    {
+      "gene": "RAD51C",
+      "n": 86,
+      "n_pathogenic": 17,
+      "base_rate": 0.198,
+      "auroc": 0.9523,
+      "auprc": 0.9137
+    },
+    {
+      "gene": "ADA",
+      "n": 55,
+      "n_pathogenic": 47,
+      "base_rate": 0.855,
+      "auroc": 0.9521,
+      "auprc": 0.9917
+    },
+    {
+      "gene": "ITGA2B",
+      "n": 87,
+      "n_pathogenic": 77,
+      "base_rate": 0.885,
+      "auroc": 0.9494,
+      "auprc": 0.9934
+    },
+    {
+      "gene": "GAA",
+      "n": 261,
+      "n_pathogenic": 240,
+      "base_rate": 0.92,
+      "auroc": 0.9431,
+      "auprc": 0.995
+    },
+    {
+      "gene": "PTCH1",
+      "n": 171,
+      "n_pathogenic": 46,
+      "base_rate": 0.269,
+      "auroc": 0.9388,
+      "auprc": 0.8958
+    },
+    {
+      "gene": "FGFR2",
+      "n": 96,
+      "n_pathogenic": 84,
+      "base_rate": 0.875,
+      "auroc": 0.9385,
+      "auprc": 0.9915
+    },
+    {
+      "gene": "WAS",
+      "n": 62,
+      "n_pathogenic": 41,
+      "base_rate": 0.661,
+      "auroc": 0.9373,
+      "auprc": 0.97
+    },
+    {
+      "gene": "BTK",
+      "n": 112,
+      "n_pathogenic": 98,
+      "base_rate": 0.875,
+      "auroc": 0.9359,
+      "auprc": 0.9913
+    },
+    {
+      "gene": "GRIN2B",
+      "n": 283,
+      "n_pathogenic": 145,
+      "base_rate": 0.512,
+      "auroc": 0.9345,
+      "auprc": 0.9455
+    },
+    {
+      "gene": "SMPD1",
+      "n": 153,
+      "n_pathogenic": 140,
+      "base_rate": 0.915,
+      "auroc": 0.9324,
+      "auprc": 0.9938
+    },
+    {
+      "gene": "WT1",
+      "n": 55,
+      "n_pathogenic": 44,
+      "base_rate": 0.8,
+      "auroc": 0.9318,
+      "auprc": 0.9841
+    },
+    {
+      "gene": "LDLR",
+      "n": 704,
+      "n_pathogenic": 667,
+      "base_rate": 0.947,
+      "auroc": 0.9313,
+      "auprc": 0.9956
+    },
+    {
+      "gene": "MSH2",
+      "n": 438,
+      "n_pathogenic": 142,
+      "base_rate": 0.324,
+      "auroc": 0.9278,
+      "auprc": 0.9049
+    },
+    {
+      "gene": "GRN",
+      "n": 16,
+      "n_pathogenic": 5,
+      "base_rate": 0.312,
+      "auroc": 0.9273,
+      "auprc": 0.9111
+    },
+    {
+      "gene": "MLH1",
+      "n": 221,
+      "n_pathogenic": 185,
+      "base_rate": 0.837,
+      "auroc": 0.9251,
+      "auprc": 0.9841
+    },
+    {
+      "gene": "MUTYH",
+      "n": 201,
+      "n_pathogenic": 57,
+      "base_rate": 0.284,
+      "auroc": 0.9201,
+      "auprc": 0.9025
+    },
+    {
+      "gene": "GLA",
+      "n": 566,
+      "n_pathogenic": 561,
+      "base_rate": 0.991,
+      "auroc": 0.9194,
+      "auprc": 0.9992
+    },
+    {
+      "gene": "TNFRSF1A",
+      "n": 38,
+      "n_pathogenic": 25,
+      "base_rate": 0.658,
+      "auroc": 0.9169,
+      "auprc": 0.968
+    },
+    {
+      "gene": "FMR1",
+      "n": 15,
+      "n_pathogenic": 3,
+      "base_rate": 0.2,
+      "auroc": 0.9167,
+      "auprc": 0.8333
+    },
+    {
+      "gene": "G6PD",
+      "n": 155,
+      "n_pathogenic": 151,
+      "base_rate": 0.974,
+      "auroc": 0.9156,
+      "auprc": 0.9976
+    },
+    {
+      "gene": "ACADVL",
+      "n": 152,
+      "n_pathogenic": 146,
+      "base_rate": 0.961,
+      "auroc": 0.9144,
+      "auprc": 0.9963
+    },
+    {
+      "gene": "USH2A",
+      "n": 438,
+      "n_pathogenic": 304,
+      "base_rate": 0.694,
+      "auroc": 0.9141,
+      "auprc": 0.9651
+    },
+    {
+      "gene": "MYO7A",
+      "n": 202,
+      "n_pathogenic": 166,
+      "base_rate": 0.822,
+      "auroc": 0.9118,
+      "auprc": 0.9807
+    },
+    {
+      "gene": "BRCA1",
+      "n": 656,
+      "n_pathogenic": 211,
+      "base_rate": 0.322,
+      "auroc": 0.9071,
+      "auprc": 0.8947
+    },
+    {
+      "gene": "PKP2",
+      "n": 37,
+      "n_pathogenic": 12,
+      "base_rate": 0.324,
+      "auroc": 0.9067,
+      "auprc": 0.8802
+    },
+    {
+      "gene": "TGFBR2",
+      "n": 108,
+      "n_pathogenic": 98,
+      "base_rate": 0.907,
+      "auroc": 0.9061,
+      "auprc": 0.9903
+    },
+    {
+      "gene": "TCOF1",
+      "n": 73,
+      "n_pathogenic": 8,
+      "base_rate": 0.11,
+      "auroc": 0.9058,
+      "auprc": 0.5694
+    },
+    {
+      "gene": "SDHB",
+      "n": 81,
+      "n_pathogenic": 75,
+      "base_rate": 0.926,
+      "auroc": 0.9044,
+      "auprc": 0.9921
+    },
+    {
+      "gene": "NPC1",
+      "n": 212,
+      "n_pathogenic": 197,
+      "base_rate": 0.929,
+      "auroc": 0.903,
+      "auprc": 0.9923
+    },
+    {
+      "gene": "BRCA2",
+      "n": 814,
+      "n_pathogenic": 114,
+      "base_rate": 0.14,
+      "auroc": 0.9022,
+      "auprc": 0.8167
+    },
+    {
+      "gene": "PEX1",
+      "n": 48,
+      "n_pathogenic": 24,
+      "base_rate": 0.5,
+      "auroc": 0.8993,
+      "auprc": 0.9141
+    },
+    {
+      "gene": "STXBP1",
+      "n": 170,
+      "n_pathogenic": 120,
+      "base_rate": 0.706,
+      "auroc": 0.8982,
+      "auprc": 0.96
+    },
+    {
+      "gene": "BRIP1",
+      "n": 61,
+      "n_pathogenic": 9,
+      "base_rate": 0.148,
+      "auroc": 0.8953,
+      "auprc": 0.837
+    },
+    {
+      "gene": "RS1",
+      "n": 148,
+      "n_pathogenic": 139,
+      "base_rate": 0.939,
+      "auroc": 0.8929,
+      "auprc": 0.9927
+    },
+    {
+      "gene": "CDKN2A",
+      "n": 51,
+      "n_pathogenic": 37,
+      "base_rate": 0.725,
+      "auroc": 0.8919,
+      "auprc": 0.9593
+    },
+    {
+      "gene": "PAX6",
+      "n": 66,
+      "n_pathogenic": 61,
+      "base_rate": 0.924,
+      "auroc": 0.8885,
+      "auprc": 0.991
+    },
+    {
+      "gene": "ABCD1",
+      "n": 280,
+      "n_pathogenic": 211,
+      "base_rate": 0.754,
+      "auroc": 0.8867,
+      "auprc": 0.9614
+    },
+    {
+      "gene": "POLG",
+      "n": 130,
+      "n_pathogenic": 112,
+      "base_rate": 0.862,
+      "auroc": 0.8854,
+      "auprc": 0.9804
+    },
+    {
+      "gene": "ALK",
+      "n": 84,
+      "n_pathogenic": 4,
+      "base_rate": 0.048,
+      "auroc": 0.8844,
+      "auprc": 0.5795
+    },
+    {
+      "gene": "SHANK3",
+      "n": 66,
+      "n_pathogenic": 15,
+      "base_rate": 0.227,
+      "auroc": 0.8824,
+      "auprc": 0.7858
+    },
+    {
+      "gene": "SYNGAP1",
+      "n": 186,
+      "n_pathogenic": 60,
+      "base_rate": 0.323,
+      "auroc": 0.8807,
+      "auprc": 0.8377
+    },
+    {
+      "gene": "GLB1",
+      "n": 151,
+      "n_pathogenic": 137,
+      "base_rate": 0.907,
+      "auroc": 0.879,
+      "auprc": 0.9864
+    },
+    {
+      "gene": "VWF",
+      "n": 191,
+      "n_pathogenic": 153,
+      "base_rate": 0.801,
+      "auroc": 0.8701,
+      "auprc": 0.9671
+    },
+    {
+      "gene": "KCNH2",
+      "n": 182,
+      "n_pathogenic": 169,
+      "base_rate": 0.929,
+      "auroc": 0.8639,
+      "auprc": 0.9893
+    },
+    {
+      "gene": "ATP7B",
+      "n": 223,
+      "n_pathogenic": 198,
+      "base_rate": 0.888,
+      "auroc": 0.8638,
+      "auprc": 0.9744
+    },
+    {
+      "gene": "CACNA1S",
+      "n": 88,
+      "n_pathogenic": 19,
+      "base_rate": 0.216,
+      "auroc": 0.8604,
+      "auprc": 0.7959
+    },
+    {
+      "gene": "POLE",
+      "n": 75,
+      "n_pathogenic": 11,
+      "base_rate": 0.147,
+      "auroc": 0.858,
+      "auprc": 0.7933
+    },
+    {
+      "gene": "LRRK2",
+      "n": 76,
+      "n_pathogenic": 6,
+      "base_rate": 0.079,
+      "auroc": 0.8548,
+      "auprc": 0.6472
+    },
+    {
+      "gene": "FGFR3",
+      "n": 68,
+      "n_pathogenic": 42,
+      "base_rate": 0.618,
+      "auroc": 0.8516,
+      "auprc": 0.9254
+    },
+    {
+      "gene": "CRB1",
+      "n": 171,
+      "n_pathogenic": 153,
+      "base_rate": 0.895,
+      "auroc": 0.8511,
+      "auprc": 0.9789
+    },
+    {
+      "gene": "BEST1",
+      "n": 223,
+      "n_pathogenic": 219,
+      "base_rate": 0.982,
+      "auroc": 0.8505,
+      "auprc": 0.9971
+    },
+    {
+      "gene": "TP53",
+      "n": 373,
+      "n_pathogenic": 222,
+      "base_rate": 0.595,
+      "auroc": 0.8504,
+      "auprc": 0.9154
+    },
+    {
+      "gene": "CDH1",
+      "n": 176,
+      "n_pathogenic": 19,
+      "base_rate": 0.108,
+      "auroc": 0.8502,
+      "auprc": 0.4678
+    },
+    {
+      "gene": "PRKN",
+      "n": 30,
+      "n_pathogenic": 16,
+      "base_rate": 0.533,
+      "auroc": 0.8482,
+      "auprc": 0.9088
+    },
+    {
+      "gene": "F8",
+      "n": 332,
+      "n_pathogenic": 295,
+      "base_rate": 0.889,
+      "auroc": 0.8471,
+      "auprc": 0.9791
+    },
+    {
+      "gene": "CPT2",
+      "n": 40,
+      "n_pathogenic": 30,
+      "base_rate": 0.75,
+      "auroc": 0.8467,
+      "auprc": 0.9439
+    },
+    {
+      "gene": "MECP2",
+      "n": 301,
+      "n_pathogenic": 126,
+      "base_rate": 0.419,
+      "auroc": 0.8445,
+      "auprc": 0.8476
+    },
+    {
+      "gene": "UBE3A",
+      "n": 48,
+      "n_pathogenic": 40,
+      "base_rate": 0.833,
+      "auroc": 0.8438,
+      "auprc": 0.9708
+    },
+    {
+      "gene": "PALB2",
+      "n": 82,
+      "n_pathogenic": 9,
+      "base_rate": 0.11,
+      "auroc": 0.8432,
+      "auprc": 0.7885
+    },
+    {
+      "gene": "OTC",
+      "n": 150,
+      "n_pathogenic": 140,
+      "base_rate": 0.933,
+      "auroc": 0.8414,
+      "auprc": 0.985
+    },
+    {
+      "gene": "TSC1",
+      "n": 106,
+      "n_pathogenic": 20,
+      "base_rate": 0.189,
+      "auroc": 0.839,
+      "auprc": 0.8061
+    },
+    {
+      "gene": "RAG1",
+      "n": 80,
+      "n_pathogenic": 62,
+      "base_rate": 0.775,
+      "auroc": 0.8387,
+      "auprc": 0.9529
+    },
+    {
+      "gene": "F9",
+      "n": 182,
+      "n_pathogenic": 161,
+      "base_rate": 0.885,
+      "auroc": 0.8382,
+      "auprc": 0.9778
+    },
+    {
+      "gene": "MYH11",
+      "n": 23,
+      "n_pathogenic": 4,
+      "base_rate": 0.174,
+      "auroc": 0.8289,
+      "auprc": 0.8088
+    },
+    {
+      "gene": "RB1",
+      "n": 101,
+      "n_pathogenic": 37,
+      "base_rate": 0.366,
+      "auroc": 0.8264,
+      "auprc": 0.8102
+    },
+    {
+      "gene": "FH",
+      "n": 169,
+      "n_pathogenic": 163,
+      "base_rate": 0.964,
+      "auroc": 0.8252,
+      "auprc": 0.9929
+    },
+    {
+      "gene": "SERPINA1",
+      "n": 53,
+      "n_pathogenic": 14,
+      "base_rate": 0.264,
+      "auroc": 0.8168,
+      "auprc": 0.6566
+    },
+    {
+      "gene": "SCN1A",
+      "n": 1026,
+      "n_pathogenic": 965,
+      "base_rate": 0.941,
+      "auroc": 0.8157,
+      "auprc": 0.9865
+    },
+    {
+      "gene": "OPA1",
+      "n": 90,
+      "n_pathogenic": 51,
+      "base_rate": 0.567,
+      "auroc": 0.8155,
+      "auprc": 0.8868
+    },
+    {
+      "gene": "SERPINC1",
+      "n": 70,
+      "n_pathogenic": 60,
+      "base_rate": 0.857,
+      "auroc": 0.8133,
+      "auprc": 0.962
+    },
+    {
+      "gene": "TGFBR1",
+      "n": 55,
+      "n_pathogenic": 49,
+      "base_rate": 0.891,
+      "auroc": 0.8129,
+      "auprc": 0.9756
+    },
+    {
+      "gene": "ABCA4",
+      "n": 647,
+      "n_pathogenic": 616,
+      "base_rate": 0.952,
+      "auroc": 0.8103,
+      "auprc": 0.9892
+    },
+    {
+      "gene": "CHD8",
+      "n": 137,
+      "n_pathogenic": 33,
+      "base_rate": 0.241,
+      "auroc": 0.8091,
+      "auprc": 0.7269
+    },
+    {
+      "gene": "KCNQ1",
+      "n": 230,
+      "n_pathogenic": 216,
+      "base_rate": 0.939,
+      "auroc": 0.8085,
+      "auprc": 0.9866
+    },
+    {
+      "gene": "CACNA1C",
+      "n": 114,
+      "n_pathogenic": 48,
+      "base_rate": 0.421,
+      "auroc": 0.8081,
+      "auprc": 0.8393
+    },
+    {
+      "gene": "SCN2A",
+      "n": 380,
+      "n_pathogenic": 351,
+      "base_rate": 0.924,
+      "auroc": 0.8043,
+      "auprc": 0.9816
+    },
+    {
+      "gene": "IDUA",
+      "n": 116,
+      "n_pathogenic": 102,
+      "base_rate": 0.879,
+      "auroc": 0.8011,
+      "auprc": 0.9647
+    },
+    {
+      "gene": "MAPT",
+      "n": 41,
+      "n_pathogenic": 16,
+      "base_rate": 0.39,
+      "auroc": 0.7975,
+      "auprc": 0.815
+    },
+    {
+      "gene": "RHO",
+      "n": 126,
+      "n_pathogenic": 119,
+      "base_rate": 0.944,
+      "auroc": 0.7959,
+      "auprc": 0.9797
+    },
+    {
+      "gene": "HEXA",
+      "n": 67,
+      "n_pathogenic": 63,
+      "base_rate": 0.94,
+      "auroc": 0.7937,
+      "auprc": 0.9831
+    },
+    {
+      "gene": "HBA1",
+      "n": 34,
+      "n_pathogenic": 18,
+      "base_rate": 0.529,
+      "auroc": 0.7917,
+      "auprc": 0.7742
+    },
+    {
+      "gene": "KIT",
+      "n": 43,
+      "n_pathogenic": 21,
+      "base_rate": 0.488,
+      "auroc": 0.7879,
+      "auprc": 0.827
+    },
+    {
+      "gene": "ATM",
+      "n": 258,
+      "n_pathogenic": 95,
+      "base_rate": 0.368,
+      "auroc": 0.7845,
+      "auprc": 0.7814
+    },
+    {
+      "gene": "RYR2",
+      "n": 281,
+      "n_pathogenic": 229,
+      "base_rate": 0.815,
+      "auroc": 0.7793,
+      "auprc": 0.9462
+    },
+    {
+      "gene": "NF1",
+      "n": 498,
+      "n_pathogenic": 409,
+      "base_rate": 0.821,
+      "auroc": 0.7775,
+      "auprc": 0.9486
+    },
+    {
+      "gene": "PRKAG2",
+      "n": 33,
+      "n_pathogenic": 20,
+      "base_rate": 0.606,
+      "auroc": 0.7769,
+      "auprc": 0.8794
+    },
+    {
+      "gene": "DMD",
+      "n": 380,
+      "n_pathogenic": 24,
+      "base_rate": 0.063,
+      "auroc": 0.7769,
+      "auprc": 0.4799
+    },
+    {
+      "gene": "GJB1",
+      "n": 150,
+      "n_pathogenic": 147,
+      "base_rate": 0.98,
+      "auroc": 0.7755,
+      "auprc": 0.9948
+    },
+    {
+      "gene": "ARID1B",
+      "n": 304,
+      "n_pathogenic": 19,
+      "base_rate": 0.062,
+      "auroc": 0.7712,
+      "auprc": 0.5361
+    },
+    {
+      "gene": "SCN5A",
+      "n": 138,
+      "n_pathogenic": 110,
+      "base_rate": 0.797,
+      "auroc": 0.7578,
+      "auprc": 0.9346
+    },
+    {
+      "gene": "FLCN",
+      "n": 24,
+      "n_pathogenic": 12,
+      "base_rate": 0.5,
+      "auroc": 0.7569,
+      "auprc": 0.8023
+    },
+    {
+      "gene": "TNNT2",
+      "n": 48,
+      "n_pathogenic": 45,
+      "base_rate": 0.938,
+      "auroc": 0.7556,
+      "auprc": 0.9756
+    },
+    {
+      "gene": "MTHFR",
+      "n": 51,
+      "n_pathogenic": 41,
+      "base_rate": 0.804,
+      "auroc": 0.7512,
+      "auprc": 0.9395
+    },
+    {
+      "gene": "CHD7",
+      "n": 388,
+      "n_pathogenic": 76,
+      "base_rate": 0.196,
+      "auroc": 0.7497,
+      "auprc": 0.6237
+    },
+    {
+      "gene": "SCN8A",
+      "n": 297,
+      "n_pathogenic": 258,
+      "base_rate": 0.869,
+      "auroc": 0.7453,
+      "auprc": 0.952
+    },
+    {
+      "gene": "KCNQ2",
+      "n": 371,
+      "n_pathogenic": 357,
+      "base_rate": 0.962,
+      "auroc": 0.7443,
+      "auprc": 0.988
+    },
+    {
+      "gene": "CASQ2",
+      "n": 14,
+      "n_pathogenic": 7,
+      "base_rate": 0.5,
+      "auroc": 0.7347,
+      "auprc": 0.8198
+    },
+    {
+      "gene": "MYH7",
+      "n": 372,
+      "n_pathogenic": 352,
+      "base_rate": 0.946,
+      "auroc": 0.7332,
+      "auprc": 0.979
+    },
+    {
+      "gene": "PINK1",
+      "n": 15,
+      "n_pathogenic": 4,
+      "base_rate": 0.267,
+      "auroc": 0.7273,
+      "auprc": 0.6905
+    },
+    {
+      "gene": "HBB",
+      "n": 87,
+      "n_pathogenic": 72,
+      "base_rate": 0.828,
+      "auroc": 0.7185,
+      "auprc": 0.9112
+    },
+    {
+      "gene": "APC",
+      "n": 86,
+      "n_pathogenic": 20,
+      "base_rate": 0.233,
+      "auroc": 0.7159,
+      "auprc": 0.5908
+    },
+    {
+      "gene": "GJB2",
+      "n": 146,
+      "n_pathogenic": 137,
+      "base_rate": 0.938,
+      "auroc": 0.708,
+      "auprc": 0.9769
+    },
+    {
+      "gene": "MYBPC3",
+      "n": 67,
+      "n_pathogenic": 33,
+      "base_rate": 0.493,
+      "auroc": 0.7077,
+      "auprc": 0.766
+    },
+    {
+      "gene": "RYR1",
+      "n": 280,
+      "n_pathogenic": 223,
+      "base_rate": 0.796,
+      "auroc": 0.6983,
+      "auprc": 0.9067
+    },
+    {
+      "gene": "PCSK9",
+      "n": 33,
+      "n_pathogenic": 7,
+      "base_rate": 0.212,
+      "auroc": 0.6923,
+      "auprc": 0.421
+    },
+    {
+      "gene": "RET",
+      "n": 106,
+      "n_pathogenic": 61,
+      "base_rate": 0.575,
+      "auroc": 0.6849,
+      "auprc": 0.7854
+    },
+    {
+      "gene": "VHL",
+      "n": 193,
+      "n_pathogenic": 158,
+      "base_rate": 0.819,
+      "auroc": 0.6745,
+      "auprc": 0.9107
+    },
+    {
+      "gene": "RAG2",
+      "n": 76,
+      "n_pathogenic": 67,
+      "base_rate": 0.882,
+      "auroc": 0.6517,
+      "auprc": 0.9489
+    },
+    {
+      "gene": "ASS1",
+      "n": 75,
+      "n_pathogenic": 70,
+      "base_rate": 0.933,
+      "auroc": 0.6457,
+      "auprc": 0.968
+    },
+    {
+      "gene": "TSC2",
+      "n": 373,
+      "n_pathogenic": 181,
+      "base_rate": 0.485,
+      "auroc": 0.6439,
+      "auprc": 0.6888
+    },
+    {
+      "gene": "DSP",
+      "n": 137,
+      "n_pathogenic": 17,
+      "base_rate": 0.124,
+      "auroc": 0.6324,
+      "auprc": 0.1949
+    },
+    {
+      "gene": "NLRP3",
+      "n": 65,
+      "n_pathogenic": 55,
+      "base_rate": 0.846,
+      "auroc": 0.62,
+      "auprc": 0.9086
+    },
+    {
+      "gene": "RUNX2",
+      "n": 42,
+      "n_pathogenic": 38,
+      "base_rate": 0.905,
+      "auroc": 0.5658,
+      "auprc": 0.9167
+    },
+    {
+      "gene": "ANK2",
+      "n": 145,
+      "n_pathogenic": 8,
+      "base_rate": 0.055,
+      "auroc": 0.5602,
+      "auprc": 0.1406
+    },
+    {
+      "gene": "MMACHC",
+      "n": 44,
+      "n_pathogenic": 39,
+      "base_rate": 0.886,
+      "auroc": 0.5385,
+      "auprc": 0.9122
+    },
+    {
+      "gene": "MEN1",
+      "n": 152,
+      "n_pathogenic": 145,
+      "base_rate": 0.954,
+      "auroc": 0.5261,
+      "auprc": 0.9674
+    },
+    {
+      "gene": "APOB",
+      "n": 378,
+      "n_pathogenic": 9,
+      "base_rate": 0.024,
+      "auroc": 0.5065,
+      "auprc": 0.0359
+    },
+    {
+      "gene": "APP",
+      "n": 42,
+      "n_pathogenic": 21,
+      "base_rate": 0.5,
+      "auroc": 0.5057,
+      "auprc": 0.5419
+    },
+    {
+      "gene": "PSEN1",
+      "n": 124,
+      "n_pathogenic": 120,
+      "base_rate": 0.968,
+      "auroc": 0.4125,
+      "auprc": 0.9658
+    },
+    {
+      "gene": "FUS",
+      "n": 27,
+      "n_pathogenic": 21,
+      "base_rate": 0.778,
+      "auroc": 0.3968,
+      "auprc": 0.7871
+    },
+    {
+      "gene": "SMAD4",
+      "n": 33,
+      "n_pathogenic": 27,
+      "base_rate": 0.818,
+      "auroc": 0.358,
+      "auprc": 0.8217
+    },
+    {
+      "gene": "MEFV",
+      "n": 15,
+      "n_pathogenic": 8,
+      "base_rate": 0.533,
+      "auroc": 0.2679,
+      "auprc": 0.4656
+    },
+    {
+      "gene": "PSEN2",
+      "n": 14,
+      "n_pathogenic": 4,
+      "base_rate": 0.286,
+      "auroc": 0.175,
+      "auprc": 0.2229
+    }
+  ]
+}

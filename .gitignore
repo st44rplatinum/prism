@@ -1,0 +1,33 @@
+# --- Third-party data -------------------------------------------------------
+# ClinVar's variant_summary.txt.gz (423 MB, NCBI) and the GRB2 binding assay
+# from the METL project. Both are other people's data with their own terms;
+# this repo tells you how to fetch them rather than redistributing them.
+data/raw/
+data/grb2-binding.tsv
+
+# --- Large regenerable artefacts --------------------------------------------
+# The feature caches are ~250 MB (150M) and ~480 MB (650M) and rebuild in about
+# two minutes with `python -m vep.esm.cache`.
+artifacts/cache/*
+!artifacts/cache/saturation/
+
+# Research checkpoints. Only the served one is committed - the others (650M,
+# multi-task, fitness-only) exist to reproduce table rows, not to run the app.
+artifacts/models/*
+!artifacts/models/npt.pt
+
+artifacts/*.log
+artifacts/*.parquet
+
+# --- Local -----------------------------------------------------------------
+notes.txt
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+node_modules/
+dist/
+*.tmp
+.DS_Store
+Thumbs.db

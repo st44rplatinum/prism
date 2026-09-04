@@ -1,0 +1,6 @@
+# Larger backbone. Inference-only in fp16 needs ~1.4 GB VRAM, which fits a
+# 4 GB card provided nothing else is on the GPU. Extraction is ~4x slower.
+backbone:
+  name: facebook/esm2_t33_650M_UR50D
+  fp16: true
+  batch_tokens: 4096

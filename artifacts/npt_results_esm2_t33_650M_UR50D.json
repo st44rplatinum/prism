@@ -1,0 +1,194 @@
+{
+  "backbone": "facebook/esm2_t33_650M_UR50D",
+  "d_emb": 1280,
+  "inductive": {
+    "protocol": "inductive",
+    "pooled_auroc": 0.9253827785708899,
+    "per_gene_auroc": 0.9392277635618413,
+    "per_gene_std": 0.048083158394900606,
+    "n_genes": 34,
+    "n_variants": 5814
+  },
+  "transductive": {
+    "protocol": "transductive",
+    "pooled_auroc": 0.955220677031235,
+    "per_gene_auroc": 0.93666281630952,
+    "per_gene_std": 0.04733381610476507,
+    "n_genes": 34,
+    "n_variants": 5814
+  },
+  "meta": {
+    "history": [
+      {
+        "epoch": 0,
+        "loss": 0.4770257942638515,
+        "val_per_gene_auroc": 0.9140044740250718,
+        "val_pooled_auroc": 0.9220740204629949
+      },
+      {
+        "epoch": 1,
+        "loss": 0.4003380464599468,
+        "val_per_gene_auroc": 0.9002207875503203,
+        "val_pooled_auroc": 0.8858319194043404
+      },
+      {
+        "epoch": 2,
+        "loss": 0.30516789142469253,
+        "val_per_gene_auroc": 0.9043168312670286,
+        "val_pooled_auroc": 0.9012457368760647
+      },
+      {
+        "epoch": 3,
+        "loss": 0.264410552761207,
+        "val_per_gene_auroc": 0.9079696361647365,
+        "val_pooled_auroc": 0.8996173003458294
+      },
+      {
+        "epoch": 4,
+        "loss": 0.28820588054213053,
+        "val_per_gene_auroc": 0.9178502630779896,
+        "val_pooled_auroc": 0.9076365821267995
+      },
+      {
+        "epoch": 5,
+        "loss": 0.28967669734653706,
+        "val_per_gene_auroc": 0.9106213893432996,
+        "val_pooled_auroc": 0.9110948760578863
+      },
+      {
+        "epoch": 6,
+        "loss": 0.2689163814811036,
+        "val_per_gene_auroc": 0.9099573333486538,
+        "val_pooled_auroc": 0.8623203001512363
+      },
+      {
+        "epoch": 7,
+        "loss": 0.24678422903680863,
+        "val_per_gene_auroc": 0.9067243824473323,
+        "val_pooled_auroc": 0.8997265455637907
+      },
+      {
+        "epoch": 8,
+        "loss": 0.22768331820960155,
+        "val_per_gene_auroc": 0.9162011831370617,
+        "val_pooled_auroc": 0.8945476394498137
+      },
+      {
+        "epoch": 9,
+        "loss": 0.25197482179268266,
+        "val_per_gene_auroc": 0.9228585588271199,
+        "val_pooled_auroc": 0.8915809489995529
+      },
+      {
+        "epoch": 10,
+        "loss": 0.23831346476140122,
+        "val_per_gene_auroc": 0.9168054546154981,
+        "val_pooled_auroc": 0.9134982708530345
+      },
+      {
+        "epoch": 11,
+        "loss": 0.2107275925211919,
+        "val_per_gene_auroc": 0.9001482943062716,
+        "val_pooled_auroc": 0.8958619959784105
+      },
+      {
+        "epoch": 12,
+        "loss": 0.2529383892822079,
+        "val_per_gene_auroc": 0.897656613503588,
+        "val_pooled_auroc": 0.8804276950283184
+      },
+      {
+        "epoch": 13,
+        "loss": 0.22992229939593622,
+        "val_per_gene_auroc": 0.9088491814960981,
+        "val_pooled_auroc": 0.8587459331760656
+      },
+      {
+        "epoch": 14,
+        "loss": 0.22700409157279258,
+        "val_per_gene_auroc": 0.9106715106670997,
+        "val_pooled_auroc": 0.8890478255080756
+      },
+      {
+        "epoch": 15,
+        "loss": 0.1798147277739675,
+        "val_per_gene_auroc": 0.9164864433051497,
+        "val_pooled_auroc": 0.9019967977495484
+      },
+      {
+        "epoch": 16,
+        "loss": 0.23185778841298693,
+        "val_per_gene_auroc": 0.9123589131164761,
+        "val_pooled_auroc": 0.9020684899238356
+      },
+      {
+        "epoch": 17,
+        "loss": 0.2014442354029355,
+        "val_per_gene_auroc": 0.9231446944896292,
+        "val_pooled_auroc": 0.9176803143531148
+      },
+      {
+        "epoch": 18,
+        "loss": 0.1915749087401976,
+        "val_per_gene_auroc": 0.9175505706170196,
+        "val_pooled_auroc": 0.9080291821288479
+      },
+      {
+        "epoch": 19,
+        "loss": 0.24407948257091144,
+        "val_per_gene_auroc": 0.9230962108751316,
+        "val_pooled_auroc": 0.9117332778003475
+      },
+      {
+        "epoch": 20,
+        "loss": 0.2131323443139748,
+        "val_per_gene_auroc": 0.9226665583509152,
+        "val_pooled_auroc": 0.9089816638729478
+      },
+      {
+        "epoch": 21,
+        "loss": 0.19174110964212257,
+        "val_per_gene_auroc": 0.9086798822432368,
+        "val_pooled_auroc": 0.9015154360079066
+      },
+      {
+        "epoch": 22,
+        "loss": 0.19531381430725256,
+        "val_per_gene_auroc": 0.9120432785090479,
+        "val_pooled_auroc": 0.9128257299799603
+      },
+      {
+        "epoch": 23,
+        "loss": 0.16091687847704936,
+        "val_per_gene_auroc": 0.9102870574448083,
+        "val_pooled_auroc": 0.9141503282477408
+      },
+      {
+        "epoch": 24,
+        "loss": 0.17587728524813429,
+        "val_per_gene_auroc": 0.9163721479318472,
+        "val_pooled_auroc": 0.912173672585254
+      },
+      {
+        "epoch": 25,
+        "loss": 0.19922213058763494,
+        "val_per_gene_auroc": 0.9144607326615983,
+        "val_pooled_auroc": 0.9069572134276029
+      },
+      {
+        "epoch": 26,
+        "loss": 0.21113779086697226,
+        "val_per_gene_auroc": 0.9172199805225503,
+        "val_pooled_auroc": 0.9026864081879291
+      },
+      {
+        "epoch": 27,
+        "loss": 0.16296239318520142,
+        "val_per_gene_auroc": 0.9172355202440695,
+        "val_pooled_auroc": 0.9072303264725062
+      }
+    ],
+    "best_epoch": 17,
+    "best_val_per_gene_auroc": 0.9231446944896292
+  }
+}

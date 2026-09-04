@@ -1,0 +1,137 @@
+{
+  "grb2_fitness": {
+    "test_spearman": 0.7699259794413515,
+    "zero_shot_spearman": 0.7246614736577824,
+    "n_test": 6784,
+    "split": "held-out positions",
+    "strict_test_spearman": 0.7427301034983907,
+    "strict_zero_shot_spearman": 0.7292262495772414,
+    "n_strict_test": 1220,
+    "note": "headline test set holds out positions; 82% of those variants still share a partner position with training. The strict subset shares none."
+  },
+  "pathogenicity": {
+    "protocol": "inductive",
+    "pooled_auroc": 0.9195283899988944,
+    "per_gene_auroc": 0.9063757384815939,
+    "per_gene_std": 0.06756290573877435,
+    "n_genes": 34,
+    "n_variants": 5814
+  },
+  "meta": {
+    "history": [
+      {
+        "epoch": 0,
+        "loss_path": 0.538171860963727,
+        "loss_fit": 0.26331162522236506,
+        "val_per_gene_auroc": 0.8819911822647478,
+        "val_fitness_rho": 0.7944688513366809
+      },
+      {
+        "epoch": 1,
+        "loss_path": 0.4479055291800857,
+        "loss_fit": 0.21153283621604202,
+        "val_per_gene_auroc": 0.9116025716398722,
+        "val_fitness_rho": 0.7874446011721264
+      },
+      {
+        "epoch": 2,
+        "loss_path": 0.3412609078272778,
+        "loss_fit": 0.15722732265435296,
+        "val_per_gene_auroc": 0.9031480623674402,
+        "val_fitness_rho": 0.8079547149361609
+      },
+      {
+        "epoch": 3,
+        "loss_path": 0.43020099568688736,
+        "loss_fit": 0.12546519311910417,
+        "val_per_gene_auroc": 0.9129250815651797,
+        "val_fitness_rho": 0.8110914469153347
+      },
+      {
+        "epoch": 4,
+        "loss_path": 0.4137033098967125,
+        "loss_fit": 0.11893320515907059,
+        "val_per_gene_auroc": 0.9102238700572816,
+        "val_fitness_rho": 0.8083658053882795
+      },
+      {
+        "epoch": 5,
+        "loss_path": 0.40158475161497964,
+        "loss_fit": 0.12871269925345852,
+        "val_per_gene_auroc": 0.9229981080083531,
+        "val_fitness_rho": 0.8255650907381783
+      },
+      {
+        "epoch": 6,
+        "loss_path": 0.31330941095729453,
+        "loss_fit": 0.12287616539539906,
+        "val_per_gene_auroc": 0.9090553340604547,
+        "val_fitness_rho": 0.80485763447851
+      },
+      {
+        "epoch": 7,
+        "loss_path": 0.3295904308279323,
+        "loss_fit": 0.1333347785945229,
+        "val_per_gene_auroc": 0.912882075329151,
+        "val_fitness_rho": 0.8167103771634959
+      },
+      {
+        "epoch": 8,
+        "loss_path": 0.27804230584218137,
+        "loss_fit": 0.10433815108928708,
+        "val_per_gene_auroc": 0.9177247167533962,
+        "val_fitness_rho": 0.8154769069243966
+      },
+      {
+        "epoch": 9,
+        "loss_path": 0.3084391203428941,
+        "loss_fit": 0.10142924995767427,
+        "val_per_gene_auroc": 0.9124994057092257,
+        "val_fitness_rho": 0.8255237521563995
+      },
+      {
+        "epoch": 10,
+        "loss_path": 0.31881244337765147,
+        "loss_fit": 0.0861395021862623,
+        "val_per_gene_auroc": 0.9165194022195555,
+        "val_fitness_rho": 0.8226964765934097
+      },
+      {
+        "epoch": 11,
+        "loss_path": 0.24975355553168874,
+        "loss_fit": 0.10437211440645808,
+        "val_per_gene_auroc": 0.9061067218186274,
+        "val_fitness_rho": 0.8124553018089989
+      },
+      {
+        "epoch": 12,
+        "loss_path": 0.2985272121134627,
+        "loss_fit": 0.10406659934247825,
+        "val_per_gene_auroc": 0.9151891231739177,
+        "val_fitness_rho": 0.8072246453781239
+      },
+      {
+        "epoch": 13,
+        "loss_path": 0.25909122675859736,
+        "loss_fit": 0.09575274584081238,
+        "val_per_gene_auroc": 0.9107201357609684,
+        "val_fitness_rho": 0.8216683915676015
+      },
+      {
+        "epoch": 14,
+        "loss_path": 0.22708943350015368,
+        "loss_fit": 0.0915493087662498,
+        "val_per_gene_auroc": 0.9075990857020031,
+        "val_fitness_rho": 0.8187148109368483
+      },
+      {
+        "epoch": 15,
+        "loss_path": 0.2671393988385033,
+        "loss_fit": 0.09544508433197256,
+        "val_per_gene_auroc": 0.9241754696516027,
+        "val_fitness_rho": 0.8168207386463354
+      }
+    ],
+    "best_epoch": 5
+  }
+}

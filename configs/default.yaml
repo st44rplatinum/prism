@@ -1,0 +1,27 @@
+# Overrides applied on top of vep/config.py defaults.
+# Run any stage with:  python -m vep.cli <stage> --config configs/default.yaml
+
+backbone:
+  name: facebook/esm2_t30_150M_UR50D
+  fp16: true
+  batch_tokens: 8192
+
+data:
+  min_review_stars: 1
+  min_variants_per_gene: 10
+  split_by: gene
+  test_fraction: 0.2
+  val_fraction: 0.1
+
+npt:
+  d_model: 256
+  n_layers: 4
+  n_heads: 8
+  n_neighbours: 32
+
+train:
+  epochs: 60
+  batch_size: 32
+  lr: 3.0e-4
+  w_pathogenicity: 1.0
+  w_fitness: 0.3
