@@ -1,4 +1,4 @@
-# ESM-2 variant effect predictor
+# Prism - ESM-2 variant effect predictor
 
 Predicts whether a missense variant is pathogenic, using a protein language
 model (ESM-2) with a ProteinNPT head trained on ClinVar labels. Ships a FastAPI
