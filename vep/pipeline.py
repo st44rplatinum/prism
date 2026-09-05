@@ -91,14 +91,14 @@ def run(cfg: Config, force: bool = False) -> int:
             f"(val per-gene AUROC {meta['best_val_per_gene_auroc']:.4f})")
     else:
         log(f"stage 3/5: checkpoint present ({ckpt_path.name}), loading")
-        from vep.models.npt import ProteinNPT
+        from vep.models.npt import ProteinNPT, load_state_dict_compat
 
         blob = torch.load(ckpt_path, map_location=device, weights_only=False)
         model = ProteinNPT(
             d_emb=feats.d_emb, d_model=cfg.npt.d_model,
             n_layers=cfg.npt.n_layers, n_heads=cfg.npt.n_heads, dropout=cfg.npt.dropout,
         ).to(device)
-        model.load_state_dict(blob["state_dict"])
+        load_state_dict_compat(model, blob["state_dict"])
         meta = blob.get("meta", {})
     model.eval()
 

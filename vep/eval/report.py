@@ -20,7 +20,7 @@ import torch
 from sklearn.metrics import roc_auc_score, roc_curve
 
 from vep.config import Config, resolve_device
-from vep.models.npt import LABEL_MASK, ProteinNPT
+from vep.models.npt import LABEL_MASK, ProteinNPT, load_state_dict_compat
 from vep.train.datasets import build_features, label_tokens, split_indices, to_tensors
 
 
@@ -54,6 +54,69 @@ def _predict(model, feats, query, pool, device, same_gene: bool, n_context: int 
     return out
 
 
+def _fitness_block() -> dict | None:
+    """The GRB2 result, paired across the leaky and the clean split.
+
+    Both splits are reported deliberately. The leaky one is what a normal
+    held-out-positions protocol produces and it says supervised training wins;
+    the clean one says it does not. Showing only the honest number would hide
+    the more useful fact, which is how far apart the two protocols land on the
+    same models.
+    """
+    try:
+        boot = json.loads(Path("artifacts/fitness_bootstrap.json").read_text())
+        multi = json.loads(Path("artifacts/multitask_results.json").read_text())
+        only = json.loads(Path("artifacts/fitness_results.json").read_text())
+    except FileNotFoundError:
+        return None
+
+    sp = boot["spearman"]
+    delta = boot["paired_delta_vs_zero_shot"]
+    leaky = {
+        "zero_shot": round(float(multi["grb2_fitness"]["zero_shot_spearman"]), 4),
+        "multi_task": round(float(multi["grb2_fitness"]["test_spearman"]), 4),
+        "fitness_only": round(float(only["all_test"]["spearman"]), 4),
+    }
+
+    models = []
+    for key, label in [("zero_shot", "zero-shot mutant-marginal"),
+                       ("multi_task", "multi-task ProteinNPT"),
+                       ("fitness_only", "fitness-only ProteinNPT")]:
+        row = {
+            "key": key,
+            "label": label,
+            "leaky": leaky[key],
+            "strict": sp[key]["rho"],
+            "ci95": sp[key]["ci95"],
+        }
+        if key in delta:
+            row["delta"] = delta[key]["delta"]
+            row["delta_ci95"] = delta[key]["ci95"]
+            row["distinguishable"] = delta[key]["distinguishable"]
+        models.append(row)
+
+    return {
+        "assay": "GRB2 binding DMS (METL project)",
+        "metric": "Spearman rho against measured binding fitness",
+        "splits": {
+            "leaky": {
+                "n": int(multi["grb2_fitness"]["n_test"]),
+                "label": "held-out positions",
+                "note": "82% of these variants are double mutants sharing one "
+                        "position with training",
+            },
+            "strict": {
+                "n": int(boot["test_set"]["n"]),
+                "label": "no training position",
+                "note": boot["test_set"]["definition"],
+            },
+        },
+        "models": models,
+        "conclusion": boot["conclusion"],
+        "method": boot["method"],
+    }
+
+
 def build_report(cfg: Config, out_path: Path) -> dict:
     device = resolve_device(cfg.backbone.device)
     feats = build_features(cfg)
@@ -68,7 +131,7 @@ def build_report(cfg: Config, out_path: Path) -> dict:
         n_heads=cfg.npt.n_heads,
         dropout=cfg.npt.dropout,
     ).to(device)
-    model.load_state_dict(ckpt["state_dict"])
+    load_state_dict_compat(model, ckpt["state_dict"])
     model.eval()
 
     test = idx["test"]
@@ -166,6 +229,7 @@ def build_report(cfg: Config, out_path: Path) -> dict:
             "npt": [[round(float(a), 4), round(float(b), 4)] for a, b in zip(fpr[::step], tpr[::step])],
             "zeroshot": [[round(float(a), 4), round(float(b), 4)] for a, b in zip(fpr_z[::step_z], tpr_z[::step_z])],
         },
+        "fitness": _fitness_block(),
         "compute_minutes": zs_report["compute_minutes"],
         "spearman_wt_vs_masked": zs_report["spearman_wt_vs_masked"],
         "backbone": cfg.backbone.name,

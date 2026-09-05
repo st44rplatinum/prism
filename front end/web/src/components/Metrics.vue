@@ -81,6 +81,33 @@ const trainingPath = computed(() => {
   }
 })
 
+// --- GRB2 fitness: the same three models under two split protocols ----------
+// A slopegraph, because the finding is not either number on its own - it is
+// that the ranking inverts between them. The specialist is top-left and
+// bottom-right; nothing else in the dashboard shows that.
+const F = { w: 340, h: 300, pad: 46, top: 22 }
+const fitness = computed(() => data.value?.fitness ?? null)
+const F_CLASS: Record<string, string> = {
+  zero_shot: 'f-zs',
+  multi_task: 'f-mt',
+  fitness_only: 'f-fo',
+}
+const fRange = computed(() => {
+  const m = fitness.value?.models
+  if (!m) return { lo: 0.68, hi: 0.79 }
+  const vals = m.flatMap((r: any) => [r.leaky, r.strict, ...r.ci95])
+  const lo = Math.min(...vals)
+  const hi = Math.max(...vals)
+  const pad = (hi - lo) * 0.1 || 0.01
+  return { lo: lo - pad, hi: hi + pad }
+})
+function fy(v: number): number {
+  const { lo, hi } = fRange.value
+  return F.h - F.pad - ((v - lo) / (hi - lo)) * (F.h - F.pad - F.top)
+}
+const fxL = F.pad + 4
+const fxR = F.w - F.pad - 4
+
 // --- calibration ------------------------------------------------------------
 const C = { w: 300, h: 300, pad: 38 }
 const cx = (v: number) => C.pad + v * (C.w - C.pad - 10)
@@ -246,6 +273,80 @@ const cy = (v: number) => C.h - C.pad - v * (C.h - C.pad - 10)
         </tbody>
       </table>
 
+      <!-- GRB2 fitness -->
+      <template v-if="fitness">
+        <h3>{{ fitness.assay }} &mdash; a negative result</h3>
+        <p class="note">
+          {{ fitness.metric }}. The same three models scored under two split
+          protocols: one that holds out positions, and one that additionally
+          drops any variant sharing a position with training.
+        </p>
+
+        <div class="fit">
+          <svg :width="F.w" :height="F.h">
+            <line :x1="fxL" :y1="F.top" :x2="fxL" :y2="F.h - F.pad" class="chance" />
+            <line :x1="fxR" :y1="F.top" :x2="fxR" :y2="F.h - F.pad" class="chance" />
+            <g v-for="m in fitness.models" :key="m.key">
+              <line :x1="fxL" :y1="fy(m.leaky)" :x2="fxR" :y2="fy(m.strict)"
+                    class="slope" :class="F_CLASS[m.key]" />
+              <circle :cx="fxL" :cy="fy(m.leaky)" r="4" class="dot" :class="F_CLASS[m.key]" />
+              <line :x1="fxR" :y1="fy(m.ci95[0])" :x2="fxR" :y2="fy(m.ci95[1])"
+                    class="ci" :class="F_CLASS[m.key]" />
+              <circle :cx="fxR" :cy="fy(m.strict)" r="4" class="dot" :class="F_CLASS[m.key]" />
+            </g>
+            <text :x="fxL" :y="F.h - F.pad + 16" class="tick">
+              holds out positions
+            </text>
+            <text :x="fxL" :y="F.h - F.pad + 28" class="tick dimtick">
+              n = {{ fitness.splits.leaky.n }}
+            </text>
+            <text :x="fxR" :y="F.h - F.pad + 16" class="tick">no training position</text>
+            <text :x="fxR" :y="F.h - F.pad + 28" class="tick dimtick">
+              n = {{ fitness.splits.strict.n }}
+            </text>
+            <text :x="F.pad - 10" :y="F.top + 4" class="tick end">
+              {{ fRange.hi.toFixed(2) }}
+            </text>
+            <text :x="F.pad - 10" :y="F.h - F.pad" class="tick end">
+              {{ fRange.lo.toFixed(2) }}
+            </text>
+            <text :x="-F.h / 2" :y="12" class="axis" transform="rotate(-90)">Spearman rho</text>
+          </svg>
+
+          <table class="fitrows">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th class="num">holds out<br />positions</th>
+                <th class="num">no training<br />position</th>
+                <th class="num">95% CI</th>
+                <th class="num">&Delta; vs zero-shot</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="m in fitness.models" :key="m.key">
+                <td><span class="key" :class="F_CLASS[m.key]"></span>{{ m.label }}</td>
+                <td class="num dim">{{ m.leaky.toFixed(4) }}</td>
+                <td class="num">{{ m.strict.toFixed(4) }}</td>
+                <td class="num dim">[{{ m.ci95[0].toFixed(3) }}, {{ m.ci95[1].toFixed(3) }}]</td>
+                <td class="num">
+                  <template v-if="m.delta !== undefined">
+                    <span :class="m.delta > 0 ? 'up' : 'down'">
+                      {{ m.delta > 0 ? '+' : '' }}{{ m.delta.toFixed(4) }}
+                    </span>
+                    <span v-if="!m.distinguishable" class="tag">not distinguishable</span>
+                  </template>
+                  <span v-else class="dim">baseline</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="note">{{ fitness.conclusion }}</p>
+        <p class="cap">{{ fitness.method }}. {{ fitness.splits.leaky.note }}.</p>
+      </template>
+
       <div v-if="hover" class="tooltip" :style="{ left: `${hover.x + 14}px`, top: `${hover.y + 14}px` }">
         <strong>{{ hover.gene }}</strong>
         <span>zero-shot {{ hover.zs.toFixed(3) }} &rarr; NPT {{ hover.npt.toFixed(3) }}</span>
@@ -306,6 +407,27 @@ figure .cap { max-width: 380px; margin: 4px 0 0; }
 .tick { font-size: 9px; fill: #999; text-anchor: middle; }
 .tick.end { text-anchor: end; }
 .axis { font-size: 10px; fill: #666; text-anchor: middle; }
+.fit { display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap; margin-top: 6px; }
+.fitrows { margin-top: 10px; }
+/* The two split columns sit next to each other and their headers wrap onto two
+   lines, so without real horizontal separation "holds out" and "no training"
+   read as one phrase. */
+.fitrows th, .fitrows td { padding: 4px 16px 4px 0; text-align: left; vertical-align: bottom; }
+.fitrows th.num, .fitrows td.num { padding-left: 14px; }
+.slope { stroke-width: 2; fill: none; }
+.ci { stroke-width: 6; opacity: 0.25; stroke-linecap: round; }
+.dimtick { fill: #bbb; }
+.tag {
+  margin-left: 6px;
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: #f0f0f0;
+  color: #777;
+  font-size: 10px;
+}
+.f-zs { stroke: #d08a1a; fill: #d08a1a; background: #d08a1a; }
+.f-mt { stroke: #0a58ca; fill: #0a58ca; background: #0a58ca; }
+.f-fo { stroke: #b00020; fill: #b00020; background: #b00020; }
 .key { display: inline-block; width: 14px; height: 3px; margin: 0 4px 0 10px; vertical-align: middle; }
 .key.npt { background: #0a58ca; }
 .key.zs { background: #d08a1a; }
