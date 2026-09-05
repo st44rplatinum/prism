@@ -1,5 +1,7 @@
 # Prism - ESM-2 variant effect predictor
 
+[![tests](https://github.com/st44rplatinum/prism/actions/workflows/tests.yml/badge.svg)](https://github.com/st44rplatinum/prism/actions/workflows/tests.yml)
+
 Predicts whether a missense variant is pathogenic, using a protein language
 model (ESM-2) with a ProteinNPT head trained on ClinVar labels. Ships a FastAPI
 service and a Vue front end: per-gene saturation maps, an AlphaFold structure

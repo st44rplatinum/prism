@@ -244,7 +244,10 @@ progress rather than gene counts.
 python -m pytest tests -q
 ```
 
-46 tests, CPU-only, no network, ~45 s. They pin the properties that would
+46 tests, CPU-only, no network, ~45 s. They run on every push via
+`.github/workflows/tests.yml`, on a CPU-only torch build - the suite
+reaches no GPU, no large artefact and no remote service, so CI needs a
+subset of the runtime dependencies. They pin the properties that would
 otherwise break silently — leakage, isoform recovery, cache invalidation,
 permutation invariance of multi-mutant pooling, scoring sign conventions.
 
