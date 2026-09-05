@@ -220,6 +220,14 @@ perfectly valid.
 wt-marginals at Spearman 0.988 and gain +0.005 per-gene AUROC for 27× the
 compute. `/predict` defaults to `wt`.
 
+**A cached artefact must not require the machinery that made it.** The
+saturation route asked for the trained head before it looked in the cache, so
+on a fresh clone - which ships 183 precomputed probability matrices but no
+feature cache, and therefore cannot construct a predictor - every committed
+matrix returned 503. The data was on disk and readable; the route just refused
+to reach it. `tests/test_api.py` now pins the whole serving path against the
+committed artefacts alone.
+
 **Checkpoint compatibility is not automatic.** The continuous-label pathway
 added for the fitness task introduced three parameters (`value_proj`,
 `task_embed`) that the served pathogenicity head predates. `task_embed` is
@@ -244,7 +252,7 @@ progress rather than gene counts.
 python -m pytest tests -q
 ```
 
-46 tests, CPU-only, no network, ~45 s. They run on every push via
+50 tests, CPU-only, no network, ~45 s. They run on every push via
 `.github/workflows/tests.yml`, on a CPU-only torch build - the suite
 reaches no GPU, no large artefact and no remote service, so CI needs a
 subset of the runtime dependencies. They pin the properties that would

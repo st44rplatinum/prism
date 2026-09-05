@@ -20,13 +20,14 @@ jobs:
 
       # A subset of the runtime requirements on purpose. The suite is CPU-only
       # and touches no network, no GPU, and none of the large artefacts, so the
-      # CUDA build of torch would be ~2 GB of download for nothing. h5py,
-      # fastapi and requests are not reached by any test.
+      # CUDA build of torch would be ~2 GB of download for nothing. h5py and
+      # requests are not reached by any test.
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install torch --index-url https://download.pytorch.org/whl/cpu
           pip install transformers pandas pyarrow numpy scipy scikit-learn pyyaml pytest
+          pip install fastapi httpx   # serving-path tests use TestClient
 
       - name: Run tests
         run: python -m pytest tests -q

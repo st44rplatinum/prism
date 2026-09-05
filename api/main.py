@@ -458,12 +458,15 @@ def saturation(
     sequence = store.sequence(symbol)
 
     if value == "probability":
-        # Probabilities are built on the masked matrix, so the masked scan has
-        # to exist first. Once it does, scoring every cell takes a few seconds.
-        if store.predictor() is None:
-            raise HTTPException(503, "no pathogenicity model loaded")
+        # Cache first. A precomputed matrix is a plain array on disk and needs
+        # no model to hand back - gating the whole route on the predictor made
+        # every committed matrix unreachable on a fresh clone, which is the one
+        # situation the committed cache exists for.
         matrix = store.get_saturation(symbol, "probability")
         if matrix is None:
+            # Computing one does need the head, and the masked matrix it scores.
+            if store.predictor() is None:
+                raise HTTPException(503, "no pathogenicity model loaded")
             if store.get_saturation(symbol, "masked") is None:
                 job = jobs.submit(symbol, "masked")
                 response.status_code = 202
