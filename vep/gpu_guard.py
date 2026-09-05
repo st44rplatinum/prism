@@ -91,6 +91,13 @@ def wait_if_paused(path: Path = PAUSE_FILE, poll: float = 0.5, on_wait=None) -> 
 # ---------------------------------------------------------------------------
 # GPU
 # ---------------------------------------------------------------------------
+# Populated by gpu_stats on failure. A watchdog that cannot see the card must
+# say why, not just that: this cost five hours of unmonitored running once,
+# because "could not read nvidia-smi; retrying" every 5s carries no diagnosis
+# and reads like transient noise.
+_LAST_SMI_ERROR: list[str] = [""]
+
+
 def gpu_stats() -> dict | None:
     """Current temperature, utilisation and memory, or None if unreadable."""
     try:
@@ -103,8 +110,10 @@ def gpu_stats() -> dict | None:
             capture_output=True,
             text=True,
             timeout=10,
+            stdin=subprocess.DEVNULL,
         )
         if out.returncode != 0:
+            _LAST_SMI_ERROR[0] = f"rc={out.returncode} stderr={out.stderr.strip()[:200]!r}"
             return None
         parts = [p.strip() for p in out.stdout.strip().splitlines()[0].split(",")]
         return {
@@ -113,7 +122,8 @@ def gpu_stats() -> dict | None:
             "mem": int(parts[2]),
             "hw_slowdown": parts[3] if len(parts) > 3 else "unknown",
         }
-    except (subprocess.SubprocessError, ValueError, IndexError):
+    except (subprocess.SubprocessError, ValueError, IndexError, OSError) as exc:
+        _LAST_SMI_ERROR[0] = f"{type(exc).__name__}: {exc}"
         return None
 
 
@@ -266,6 +276,8 @@ class Guard:
     mode: str = "pause"
     suspended: bool = False
     peak: int = 0
+    blind_streak: int = 0
+    seconds_blind: float = 0.0
     throttle_events: int = 0
     seconds_suspended: float = 0.0
     log: list[str] = field(default_factory=list)
@@ -314,10 +326,32 @@ class Guard:
 
             stats = gpu_stats()
             if stats is None:
-                print()
-                self.say("could not read nvidia-smi; retrying")
+                # Escalate rather than repeat. One identical line every 5s
+                # for hours is indistinguishable from working output in a
+                # tailed log, so a blind guard looked healthy while the card
+                # ran unmonitored for five hours.
+                self.blind_streak += 1
+                self.seconds_blind += self.interval
+                blind_for = self.blind_streak * self.interval
+                if self.blind_streak == 1:
+                    print()
+                    self.say(f"cannot read nvidia-smi: {_LAST_SMI_ERROR[0]}")
+                elif blind_for % 300 == 0:
+                    print()
+                    self.say(
+                        f"STILL BLIND after {blind_for // 60:.0f}m - the card "
+                        f"is NOT being monitored. Last error: "
+                        f"{_LAST_SMI_ERROR[0]}. Only the card's own hardware "
+                        f"slowdown is protecting it; restart the guard."
+                    )
                 time.sleep(self.interval)
                 continue
+
+            if self.blind_streak:
+                print()
+                self.say(f"nvidia-smi readable again after "
+                         f"{self.blind_streak * self.interval / 60:.0f}m blind")
+                self.blind_streak = 0
 
             temp = stats["temp"]
             self.peak = max(self.peak, temp)
@@ -497,6 +531,10 @@ def main() -> int:
         code = 130
     print(f"\npeak {guard.peak}C, {guard.throttle_events} throttle events, "
           f"{guard.seconds_suspended:.0f}s suspended")
+    if guard.seconds_blind:
+        print(f"WARNING: {guard.seconds_blind / 60:.0f} minutes "
+              f"unmonitored - the peak above only covers the time the "
+              f"card was readable")
     return code
 
 
