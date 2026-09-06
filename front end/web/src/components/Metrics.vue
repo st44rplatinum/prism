@@ -29,6 +29,7 @@ const MODEL_LABELS: Record<string, string> = {
   esm2_masked: 'ESM-2 masked-marginal',
   protein_npt_inductive: 'ProteinNPT (inductive)',
   protein_npt_transductive: 'ProteinNPT (transductive)',
+  alphamissense: 'AlphaMissense',
 }
 const rows = computed(() => {
   if (!data.value) return []
@@ -39,8 +40,9 @@ const rows = computed(() => {
     label: MODEL_LABELS[k] ?? k,
     perGene: pg[k],
     pooled: pooled[k],
-    // The zero-shot masked score is the bar the supervised model had to clear.
-    delta: k.startsWith('protein_npt') ? pg[k] - pg.esm2_masked : null,
+    // The zero-shot masked score is the bar every supervised model had to
+    // clear, AlphaMissense included - it is scored on the same variants.
+    delta: k === 'blosum62' || k.startsWith('esm2') ? null : pg[k] - pg.esm2_masked,
   }))
 })
 
@@ -160,6 +162,24 @@ const cy = (v: number) => C.h - C.pad - v * (C.h - C.pad - 10)
         which <em>genes</em> are constrained &mdash; information it will not have on a new gene.
         Inductive means the test gene contributed no labels of its own, so it is the only
         row directly comparable to zero-shot.
+      </p>
+      <p v-if="data.alphamissense" class="note">
+        <strong>AlphaMissense scores higher.</strong>
+        {{ (data.alphamissense.summary.am_pathogenicity.per_gene -
+            data.alphamissense.summary.npt.per_gene).toFixed(4).replace('-', '') }}
+        per-gene AUROC ahead, on the identical
+        {{ data.alphamissense.n_test.toLocaleString() }} variants and
+        {{ data.alphamissense.n_genes }} genes, and better on
+        {{ data.alphamissense.n_genes_alphamissense_better }} of them. A paired
+        bootstrap over genes puts the gap at
+        {{ data.alphamissense.paired_bootstrap_over_genes.npt_vs_alphamissense.delta.toFixed(4) }}
+        (95% CI
+        [{{ data.alphamissense.paired_bootstrap_over_genes.npt_vs_alphamissense.ci95[0].toFixed(4) }},
+        {{ data.alphamissense.paired_bootstrap_over_genes.npt_vs_alphamissense.ci95[1].toFixed(4) }}]),
+        so it is a real difference and not noise. It is a far larger model trained on the
+        whole proteome with population-frequency data and structural context; this is a
+        150M-parameter backbone with a small head, trained on 183 genes.
+        The one place the ordering flips is pooled AUROC, where ProteinNPT is ahead.
       </p>
 
       <div class="grid">

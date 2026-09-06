@@ -1,0 +1,361 @@
+{
+ "source": "AlphaMissense (Cheng et al., Science 2023), CC BY-NC-SA 4.0",
+ "n_test": 5814,
+ "n_covered": 5814,
+ "coverage": 1.0,
+ "n_genes": 34,
+ "labels": {
+  "zeroshot": "ESM-2 masked-marginal (zero-shot)",
+  "npt": "ProteinNPT (inductive)",
+  "am_pathogenicity": "AlphaMissense"
+ },
+ "summary": {
+  "zeroshot": {
+   "per_gene": 0.8435,
+   "pooled": 0.8422
+  },
+  "npt": {
+   "per_gene": 0.9271,
+   "pooled": 0.9355
+  },
+  "am_pathogenicity": {
+   "per_gene": 0.9601,
+   "pooled": 0.9306
+  }
+ },
+ "paired_bootstrap_over_genes": {
+  "npt_vs_alphamissense": {
+   "delta": -0.033,
+   "ci95": [
+    -0.0483,
+    -0.0187
+   ],
+   "distinguishable": true
+  },
+  "npt_vs_zeroshot": {
+   "delta": 0.0835,
+   "ci95": [
+    0.0488,
+    0.1264
+   ],
+   "distinguishable": true
+  },
+  "alphamissense_vs_zeroshot": {
+   "delta": 0.1168,
+   "ci95": [
+    0.0784,
+    0.1623
+   ],
+   "distinguishable": true
+  }
+ },
+ "n_genes_alphamissense_better": 23,
+ "per_gene": [
+  {
+   "gene": "GRN",
+   "n": 16,
+   "base_rate": 0.312,
+   "zeroshot": 0.9273,
+   "npt": 0.8182,
+   "am_pathogenicity": 0.9818,
+   "npt_minus_am": -0.1636
+  },
+  {
+   "gene": "NLRP3",
+   "n": 65,
+   "base_rate": 0.846,
+   "zeroshot": 0.62,
+   "npt": 0.7745,
+   "am_pathogenicity": 0.9009,
+   "npt_minus_am": -0.1264
+  },
+  {
+   "gene": "CASQ2",
+   "n": 14,
+   "base_rate": 0.5,
+   "zeroshot": 0.7347,
+   "npt": 0.8367,
+   "am_pathogenicity": 0.9592,
+   "npt_minus_am": -0.1225
+  },
+  {
+   "gene": "SCN2A",
+   "n": 380,
+   "base_rate": 0.924,
+   "zeroshot": 0.8043,
+   "npt": 0.8944,
+   "am_pathogenicity": 0.982,
+   "npt_minus_am": -0.0876
+  },
+  {
+   "gene": "SMAD4",
+   "n": 33,
+   "base_rate": 0.818,
+   "zeroshot": 0.358,
+   "npt": 0.8704,
+   "am_pathogenicity": 0.9506,
+   "npt_minus_am": -0.0802
+  },
+  {
+   "gene": "POLE",
+   "n": 75,
+   "base_rate": 0.147,
+   "zeroshot": 0.858,
+   "npt": 0.8736,
+   "am_pathogenicity": 0.9489,
+   "npt_minus_am": -0.0753
+  },
+  {
+   "gene": "ABCA4",
+   "n": 647,
+   "base_rate": 0.952,
+   "zeroshot": 0.8103,
+   "npt": 0.8939,
+   "am_pathogenicity": 0.9644,
+   "npt_minus_am": -0.0705
+  },
+  {
+   "gene": "FLCN",
+   "n": 24,
+   "base_rate": 0.5,
+   "zeroshot": 0.7569,
+   "npt": 0.8889,
+   "am_pathogenicity": 0.9583,
+   "npt_minus_am": -0.0694
+  },
+  {
+   "gene": "FGFR3",
+   "n": 68,
+   "base_rate": 0.618,
+   "zeroshot": 0.8516,
+   "npt": 0.9048,
+   "am_pathogenicity": 0.9615,
+   "npt_minus_am": -0.0567
+  },
+  {
+   "gene": "F8",
+   "n": 332,
+   "base_rate": 0.889,
+   "zeroshot": 0.8471,
+   "npt": 0.9251,
+   "am_pathogenicity": 0.9769,
+   "npt_minus_am": -0.0518
+  },
+  {
+   "gene": "VWF",
+   "n": 191,
+   "base_rate": 0.801,
+   "zeroshot": 0.8701,
+   "npt": 0.888,
+   "am_pathogenicity": 0.9383,
+   "npt_minus_am": -0.0503
+  },
+  {
+   "gene": "CACNA1C",
+   "n": 114,
+   "base_rate": 0.421,
+   "zeroshot": 0.8081,
+   "npt": 0.947,
+   "am_pathogenicity": 0.9921,
+   "npt_minus_am": -0.0451
+  },
+  {
+   "gene": "USH2A",
+   "n": 438,
+   "base_rate": 0.694,
+   "zeroshot": 0.9141,
+   "npt": 0.9305,
+   "am_pathogenicity": 0.9645,
+   "npt_minus_am": -0.034
+  },
+  {
+   "gene": "TSC1",
+   "n": 106,
+   "base_rate": 0.189,
+   "zeroshot": 0.839,
+   "npt": 0.9477,
+   "am_pathogenicity": 0.9802,
+   "npt_minus_am": -0.0325
+  },
+  {
+   "gene": "UBE3A",
+   "n": 48,
+   "base_rate": 0.833,
+   "zeroshot": 0.8438,
+   "npt": 0.9625,
+   "am_pathogenicity": 0.9938,
+   "npt_minus_am": -0.0313
+  },
+  {
+   "gene": "MUTYH",
+   "n": 201,
+   "base_rate": 0.284,
+   "zeroshot": 0.9201,
+   "npt": 0.9499,
+   "am_pathogenicity": 0.9761,
+   "npt_minus_am": -0.0262
+  },
+  {
+   "gene": "PTCH1",
+   "n": 171,
+   "base_rate": 0.269,
+   "zeroshot": 0.9388,
+   "npt": 0.9621,
+   "am_pathogenicity": 0.9843,
+   "npt_minus_am": -0.0222
+  },
+  {
+   "gene": "CHD8",
+   "n": 137,
+   "base_rate": 0.241,
+   "zeroshot": 0.8091,
+   "npt": 0.9435,
+   "am_pathogenicity": 0.9633,
+   "npt_minus_am": -0.0198
+  },
+  {
+   "gene": "PTEN",
+   "n": 262,
+   "base_rate": 0.966,
+   "zeroshot": 0.9794,
+   "npt": 0.9802,
+   "am_pathogenicity": 0.9912,
+   "npt_minus_am": -0.011
+  },
+  {
+   "gene": "GRIN2A",
+   "n": 286,
+   "base_rate": 0.374,
+   "zeroshot": 0.9533,
+   "npt": 0.9665,
+   "am_pathogenicity": 0.9768,
+   "npt_minus_am": -0.0103
+  },
+  {
+   "gene": "GJB1",
+   "n": 150,
+   "base_rate": 0.98,
+   "zeroshot": 0.7755,
+   "npt": 0.9909,
+   "am_pathogenicity": 1.0,
+   "npt_minus_am": -0.0091
+  },
+  {
+   "gene": "MSH2",
+   "n": 438,
+   "base_rate": 0.324,
+   "zeroshot": 0.9278,
+   "npt": 0.9137,
+   "am_pathogenicity": 0.9224,
+   "npt_minus_am": -0.0087
+  },
+  {
+   "gene": "MSH6",
+   "n": 144,
+   "base_rate": 0.465,
+   "zeroshot": 0.9566,
+   "npt": 0.9729,
+   "am_pathogenicity": 0.98,
+   "npt_minus_am": -0.0071
+  },
+  {
+   "gene": "RPGR",
+   "n": 92,
+   "base_rate": 0.489,
+   "zeroshot": 0.9565,
+   "npt": 0.9641,
+   "am_pathogenicity": 0.9636,
+   "npt_minus_am": 0.0005
+  },
+  {
+   "gene": "BEST1",
+   "n": 223,
+   "base_rate": 0.982,
+   "zeroshot": 0.8505,
+   "npt": 0.9692,
+   "am_pathogenicity": 0.968,
+   "npt_minus_am": 0.0012
+  },
+  {
+   "gene": "HBB",
+   "n": 87,
+   "base_rate": 0.828,
+   "zeroshot": 0.7185,
+   "npt": 0.8222,
+   "am_pathogenicity": 0.8204,
+   "npt_minus_am": 0.0018
+  },
+  {
+   "gene": "WT1",
+   "n": 55,
+   "base_rate": 0.8,
+   "zeroshot": 0.9318,
+   "npt": 0.9545,
+   "am_pathogenicity": 0.9525,
+   "npt_minus_am": 0.002
+  },
+  {
+   "gene": "RUNX2",
+   "n": 42,
+   "base_rate": 0.905,
+   "zeroshot": 0.5658,
+   "npt": 0.9803,
+   "am_pathogenicity": 0.9737,
+   "npt_minus_am": 0.0066
+  },
+  {
+   "gene": "SDHB",
+   "n": 81,
+   "base_rate": 0.926,
+   "zeroshot": 0.9044,
+   "npt": 0.9956,
+   "am_pathogenicity": 0.9889,
+   "npt_minus_am": 0.0067
+  },
+  {
+   "gene": "COL1A1",
+   "n": 517,
+   "base_rate": 0.843,
+   "zeroshot": 0.9696,
+   "npt": 0.9729,
+   "am_pathogenicity": 0.965,
+   "npt_minus_am": 0.0079
+  },
+  {
+   "gene": "STK11",
+   "n": 52,
+   "base_rate": 0.731,
+   "zeroshot": 0.9962,
+   "npt": 0.9981,
+   "am_pathogenicity": 0.9887,
+   "npt_minus_am": 0.0094
+  },
+  {
+   "gene": "G6PD",
+   "n": 155,
+   "base_rate": 0.974,
+   "zeroshot": 0.9156,
+   "npt": 0.899,
+   "am_pathogenicity": 0.8874,
+   "npt_minus_am": 0.0116
+  },
+  {
+   "gene": "PRKN",
+   "n": 30,
+   "base_rate": 0.533,
+   "zeroshot": 0.8482,
+   "npt": 0.9375,
+   "am_pathogenicity": 0.9241,
+   "npt_minus_am": 0.0134
+  },
+  {
+   "gene": "TNFRSF1A",
+   "n": 38,
+   "base_rate": 0.658,
+   "zeroshot": 0.9169,
+   "npt": 0.9908,
+   "am_pathogenicity": 0.9631,
+   "npt_minus_am": 0.0277
+  }
+ ]
+}

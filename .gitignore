@@ -31,3 +31,9 @@ dist/
 *.tmp
 .DS_Store
 Thumbs.db
+
+# AlphaMissense predictions are CC BY-NC-SA 4.0 and are not redistributed.
+# Download: https://storage.googleapis.com/dm_alphamissense/AlphaMissense_aa_substitutions.tsv.gz
+AlphaMissense_*.tsv.gz
+artifacts/cache/alphamissense_panel.parquet
+artifacts/cache/test_scores.parquet

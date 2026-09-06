@@ -54,6 +54,21 @@ def _predict(model, feats, query, pool, device, same_gene: bool, n_context: int 
     return out
 
 
+def _alphamissense_block() -> dict | None:
+    """Comparison against AlphaMissense, if it has been run.
+
+    Optional because it needs a 1.2 GB third-party download that this repo does
+    not redistribute. Absent, the dashboard simply omits the row - it does not
+    fall back to a stale number.
+    """
+    try:
+        return json.loads(
+            Path("artifacts/alphamissense_comparison.json").read_text(encoding="utf-8")
+        )
+    except FileNotFoundError:
+        return None
+
+
 def _fitness_block() -> dict | None:
     """The GRB2 result, paired across the leaky and the clean split.
 
@@ -230,10 +245,17 @@ def build_report(cfg: Config, out_path: Path) -> dict:
             "zeroshot": [[round(float(a), 4), round(float(b), 4)] for a, b in zip(fpr_z[::step_z], tpr_z[::step_z])],
         },
         "fitness": _fitness_block(),
+        "alphamissense": _alphamissense_block(),
         "compute_minutes": zs_report["compute_minutes"],
         "spearman_wt_vs_masked": zs_report["spearman_wt_vs_masked"],
         "backbone": cfg.backbone.name,
     }
+
+    am = report["alphamissense"]
+    if am:
+        # Same held-out variants, same metric, so it belongs in the same table.
+        report["headline"]["test_per_gene_auroc"]["alphamissense"] =             am["summary"]["am_pathogenicity"]["per_gene"]
+        report["headline"]["test_pooled_auroc"]["alphamissense"] =             am["summary"]["am_pathogenicity"]["pooled"]
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(report, indent=1), encoding="utf-8")

@@ -20,6 +20,7 @@ variants in the same protein has a large and unrealistic advantage.
 | ESM-2 masked-marginal (zero-shot) | 0.8435 | 0.8422 |
 | **ProteinNPT, 150M backbone** | **0.9271** | 0.9355 |
 | ProteinNPT, 650M backbone | **0.9392** | 0.9254 |
+| AlphaMissense | **0.9601** | 0.9306 |
 
 31 of 34 held-out genes improved over zero-shot. Calibrated probabilities:
 test ECE 0.097 → 0.052 (Platt scaling fitted on validation only).
@@ -27,6 +28,40 @@ test ECE 0.097 → 0.052 (Platt scaling fitted on validation only).
 **Per-gene AUROC is the headline, not pooled.** Pooled AUROC rewards a model
 for knowing which *genes* are constrained, which is information it will not
 have on a gene it has never seen. Per-gene asks the clinical question directly.
+
+### AlphaMissense beats it
+
+Scored on the identical 5,814 held-out variants across the same 34 genes,
+100% coverage, no subsetting in anyone's favour:
+
+| | per-gene | pooled |
+|---|---|---|
+| ESM-2 masked-marginal | 0.8435 | 0.8422 |
+| ProteinNPT (this) | 0.9271 | **0.9355** |
+| AlphaMissense | **0.9601** | 0.9306 |
+
+A paired bootstrap over genes puts the gap at **-0.0330, 95% CI
+[-0.0483, -0.0187]** - a real difference, not noise. AlphaMissense is ahead on
+23 of the 34 genes.
+
+That is the expected outcome and worth stating plainly. AlphaMissense is a much
+larger model trained across the whole proteome with population-frequency
+signal and structural context; this is a 150M-parameter backbone with a small
+head trained on 183 genes and a 4 GB GPU. The point of comparison is not to
+win, it is to say where the number actually sits.
+
+Two things survive it. ProteinNPT is ahead on **pooled** AUROC (0.9355 vs
+0.9306), the only metric where the ordering flips. And both supervised
+approaches beat the language model alone by a wide margin - the zero-shot
+baseline is 0.8435, so most of what either adds is real.
+
+Reproduce with:
+
+```bash
+python -m vep.eval.alphamissense --alphamissense AlphaMissense_aa_substitutions.tsv.gz
+```
+
+The scores are CC BY-NC-SA 4.0 and are not redistributed here.
 
 ### The interesting result
 
@@ -43,6 +78,10 @@ variants are evolutionarily plausible.
 Giving the model labelled neighbours at inference time does fix it. SMAD4
 reaches ~0.86 under both backbones. That capability is what the non-parametric
 architecture buys, and nothing else in the project reproduces it.
+
+It is not the only route there, though: AlphaMissense reaches 0.951 on SMAD4
+without any labelled neighbours, presumably from population-frequency signal
+that carries information evolutionary likelihood does not.
 
 ### Where the 650M gain actually comes from
 
@@ -174,7 +213,7 @@ cd "front end/web" && npm install && npm run dev
 | `vep/esm/` | ESM-2 wrapper, long-protein windowing, feature and saturation caches |
 | `vep/models/` | ProteinNPT, the serving predictor, calibration |
 | `vep/train/` | datasets, trainer, multi-task trainer |
-| `vep/eval/` | zero-shot baselines, metrics, report builder |
+| `vep/eval/` | zero-shot baselines, metrics, report builder, AlphaMissense comparison |
 | `vep/pipeline.py` | end-to-end rebuild for one backbone |
 | `vep/precompute.py` | saturation cache for the whole panel |
 | `vep/gpu_guard.py` | thermal watchdog for long GPU jobs |

@@ -8,7 +8,9 @@ service and a Vue front end: per-gene saturation maps, an AlphaFold structure
 view, and a held-out evaluation dashboard.
 
 Held-out per-gene AUROC **0.927**, against 0.844 for zero-shot ESM-2 and 0.723
-for BLOSUM62, on 34 genes the model never saw during training.
+for BLOSUM62, on 34 genes the model never saw during training. AlphaMissense,
+scored on the identical variants, gets **0.960** - see
+[the comparison](docs/GUIDE.md#alphamissense-beats-it).
 
 > **Research prototype.** Trained on 183 genes on a 4 GB GPU. Not a clinical
 > tool — no medical decision should rest on it.
