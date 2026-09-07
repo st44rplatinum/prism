@@ -39,6 +39,21 @@ its own.
 
 ![Metrics dashboard](docs/img/metrics.png)
 
+## What no predictor here can do
+
+Every model on that table, AlphaMissense included, outputs one number. One
+number cannot say *which* disease.
+
+In SCN5A, gain-of-function variants cause long QT syndrome and loss-of-function
+variants cause Brugada syndrome. Opposite mechanisms, opposite treatment, same
+gene, and both are "pathogenic". AlphaMissense tells them apart at **AUROC
+0.503** - chance - while scoring 0.960 on pathogenicity itself. Sequence
+position alone does better (0.708).
+
+Across eight such within-gene contrasts, no pathogenicity score beat a plain
+positional baseline. Pathogenicity prediction is in good shape; mechanism
+prediction is untouched, and the single output axis is why.
+
 ---
 
 ## Quick start
