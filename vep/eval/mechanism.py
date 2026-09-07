@@ -93,7 +93,10 @@ def build_contrasts(cfg: Config, clinvar_path: Path) -> pd.DataFrame:
         counts: Counter = Counter()
         for cs in sub["cuis"]:
             counts.update(cs)
-        candidates = [c for c, n in counts.items() if n >= MIN_PER_CLASS]
+        # Sorted, and ties broken on the concept ids: Counter iterates in
+        # insertion order, so without this the chosen contrast depends on row
+        # order and the reported AUROC moves between runs.
+        candidates = sorted(c for c, n in counts.items() if n >= MIN_PER_CLASS)
 
         best = None
         for a, b in itertools.combinations(candidates, 2):
@@ -101,8 +104,11 @@ def build_contrasts(cfg: Config, clinvar_path: Path) -> pd.DataFrame:
             has_b = sub["cuis"].map(lambda s, b=b: b in s)
             only_one = has_a ^ has_b
             na, nb = int((has_a & only_one).sum()), int((has_b & only_one).sum())
-            if min(na, nb) >= MIN_PER_CLASS and (best is None or min(na, nb) > best[0]):
-                best = (min(na, nb), a, b, only_one, has_a)
+            if min(na, nb) < MIN_PER_CLASS:
+                continue
+            key = (-min(na, nb), -(na + nb), a, b)
+            if best is None or key < best[0]:
+                best = (key, a, b, only_one, has_a)
 
         if best is None:
             continue

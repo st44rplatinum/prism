@@ -4,8 +4,8 @@
    {
     "gene": "SCN5A",
     "description": "long QT (GoF) vs Brugada (LoF)",
-    "n_a": 31,
-    "n_b": 20,
+    "n_a": 20,
+    "n_b": 31,
     "position": 0.7081,
     "esm2_masked": 0.6048,
     "npt_prob": 0.6226,
@@ -14,8 +14,8 @@
    {
     "gene": "RYR1",
     "description": "central core myopathy vs malignant hyperthermia",
-    "n_a": 35,
-    "n_b": 42,
+    "n_a": 42,
+    "n_b": 35,
     "position": 0.9041,
     "esm2_masked": 0.7156,
     "npt_prob": 0.702,
@@ -34,8 +34,8 @@
    {
     "gene": "FBN1",
     "description": "aortic aneurysm vs Marfan",
-    "n_a": 76,
-    "n_b": 185,
+    "n_a": 185,
+    "n_b": 76,
     "position": 0.5278,
     "esm2_masked": 0.5474,
     "npt_prob": 0.5482,
@@ -54,8 +54,8 @@
    {
     "gene": "USH2A",
     "description": "retinal dystrophy vs Usher",
-    "n_a": 41,
-    "n_b": 43,
+    "n_a": 43,
+    "n_b": 41,
     "position": 0.5587,
     "esm2_masked": 0.5451,
     "npt_prob": 0.5247,
@@ -94,8 +94,8 @@
    {
     "gene": "KCNQ2",
     "description": "DEE vs DEE",
-    "n_a": 77,
-    "n_b": 123,
+    "n_a": 123,
+    "n_b": 77,
     "position": 0.5377,
     "esm2_masked": 0.5632,
     "npt_prob": 0.5601,
@@ -114,8 +114,8 @@
    {
     "gene": "LDLR",
     "description": "FH vs FH",
-    "n_a": 213,
-    "n_b": 81,
+    "n_a": 81,
+    "n_b": 213,
     "position": 0.5327,
     "esm2_masked": 0.5506,
     "npt_prob": 0.5378,
@@ -124,8 +124,8 @@
    {
     "gene": "BRCA1",
     "description": "breast cancer vs BRCA1 predisposition",
-    "n_a": 41,
-    "n_b": 25,
+    "n_a": 25,
+    "n_b": 41,
     "position": 0.5483,
     "esm2_masked": 0.5132,
     "npt_prob": 0.5376,
@@ -134,12 +134,12 @@
    {
     "gene": "MLH1",
     "description": "Lynch vs HNPCC",
-    "n_a": 44,
+    "n_a": 46,
     "n_b": 23,
-    "position": 0.5543,
-    "esm2_masked": 0.5138,
-    "npt_prob": 0.585,
-    "alphamissense": 0.5623
+    "position": 0.5562,
+    "esm2_masked": 0.5227,
+    "npt_prob": 0.518,
+    "alphamissense": 0.5397
    },
    {
     "gene": "GJB1",
@@ -153,10 +153,10 @@
    }
   ],
   "mean_auroc": {
-   "position": 0.5537,
-   "esm2_masked": 0.5598,
-   "npt_prob": 0.5673,
-   "alphamissense": 0.5473
+   "position": 0.554,
+   "esm2_masked": 0.5613,
+   "npt_prob": 0.5561,
+   "alphamissense": 0.5435
   }
  }
 }
