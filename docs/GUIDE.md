@@ -226,6 +226,7 @@ cd "front end/web" && npm install && npm run dev
 | `front end/web/` | Vue 3 front end |
 | `archive/` | superseded scripts, kept for reference |
 | `docs/` | this guide and the screenshots |
+| `tools/` | screenshot capture for the docs |
 
 ---
 
