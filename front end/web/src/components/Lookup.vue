@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from 'vue'
 import { API, state, syncUrl } from '../state'
+import GenePicker from './GenePicker.vue'
 
 interface Result {
   variant: string
@@ -118,12 +119,8 @@ onMounted(async () => {
 <template>
   <div class="wrap">
     <header>
-      <select :value="state.gene" :disabled="loading"
-              @change="selectGene(($event.target as HTMLSelectElement).value)">
-        <option v-for="g in genes" :key="g.symbol" :value="g.symbol">
-          {{ g.symbol }} &mdash; {{ g.length }} aa
-        </option>
-      </select>
+      <GenePicker :model-value="state.gene" :genes="genes" :disabled="loading"
+                  @select="selectGene" />
 
       <input v-model="input" class="variants" spellcheck="false"
              placeholder="R175H, P72R &hellip;"

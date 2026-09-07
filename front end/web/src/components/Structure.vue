@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
 import { API, state, syncUrl } from '../state'
+import GenePicker from './GenePicker.vue'
 
 declare const $3Dmol: any
 
@@ -184,12 +185,8 @@ onBeforeUnmount(() => {
 <template>
   <div class="wrap">
     <header>
-      <select :value="gene" :disabled="loading"
-              @change="selectGene(($event.target as HTMLSelectElement).value)">
-        <option v-for="g in genes" :key="g.symbol" :value="g.symbol">
-          {{ g.symbol }} &mdash; {{ g.length }} aa
-        </option>
-      </select>
+      <GenePicker :model-value="state.gene" :genes="genes" :disabled="loading"
+                  @select="selectGene" />
       <span v-if="current" class="protein">{{ current.protein_name }}</span>
       <div class="modes">
         <button :class="{ on: colourBy === 'pathogenicity' }" @click="setColourBy('pathogenicity')">

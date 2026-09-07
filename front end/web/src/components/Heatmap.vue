@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from 'vue'
 import { API, state, syncUrl } from '../state'
+import GenePicker from './GenePicker.vue'
 
 // --- state -----------------------------------------------------------------
 // ref() makes a value reactive: read/write it as .value here in the script,
@@ -77,10 +78,24 @@ function estimateLabel(length: number): string {
   const s = estimateSeconds(length)
   return s < 90 ? `~${Math.round(s)}s` : s < 5400 ? `~${(s / 60).toFixed(0)}m` : `~${(s / 3600).toFixed(1)}h`
 }
-const readyGenes = computed(() => genes.value.filter(isReady))
-const pendingGenes = computed(() => genes.value.filter((g) => !isReady(g)))
+function pickerLabel(g: any): string {
+  return isReady(g)
+    ? `${g.length} aa, ${g.n_variants} variants`
+    : `${g.length} aa, ${estimateLabel(g.length)} to compute`
+}
 
 const CELL_WIDTH = 3
+
+// Long proteins do not fit at 3px per residue - BRCA2 shows about a tenth of
+// itself - so fit mode divides the container width instead.
+const fit = ref(false)
+const cellW = ref(CELL_WIDTH)
+
+function toggleFit() {
+  fit.value = !fit.value
+  draw()
+}
+
 const CELL_HEIGHT = 14
 const RULER_HEIGHT = 16
 
@@ -171,7 +186,7 @@ function onMove(event: MouseEvent) {
 
   // offsetX/offsetY are relative to the canvas itself, so the horizontal
   // scroll of the container needs no correction here.
-  const position = Math.floor(event.offsetX / CELL_WIDTH)
+  const position = Math.floor(event.offsetX / cellW.value)
   const aaIndex = Math.floor(event.offsetY / CELL_HEIGHT)
 
   // Below the last amino-acid row is the position ruler, not data.
@@ -231,7 +246,9 @@ function draw() {
   const length = matrix.value.length
   const nAA = alphabet.value.length
 
-  canvas.width = length * CELL_WIDTH
+  const available = canvas.parentElement?.clientWidth ?? 0
+  cellW.value = fit.value && available ? available / length : CELL_WIDTH
+  canvas.width = Math.max(1, Math.round(length * cellW.value))
   canvas.height = nAA * CELL_HEIGHT + RULER_HEIGHT
 
   const ctx = canvas.getContext('2d')
@@ -247,9 +264,9 @@ function draw() {
       // grey rather than whatever the scale maps 0 (or 0.5) to.
       ctx.fillStyle = value === null ? '#c8c8c8' : colourFor(value)
       ctx.fillRect(
-        position * CELL_WIDTH,
+        position * cellW.value,
         aaIndex * CELL_HEIGHT,
-        CELL_WIDTH,
+        Math.ceil(cellW.value),
         CELL_HEIGHT,
       )
     }
@@ -260,8 +277,11 @@ function draw() {
   ctx.fillStyle = '#666'
   ctx.font = '10px monospace'
   ctx.textBaseline = 'top'
-  for (let position = 0; position < length; position += 50) {
-    const x = position * CELL_WIDTH
+  // Thin cells cannot carry a tick every 50 residues without the labels
+  // colliding.
+  const step = Math.max(50, Math.ceil(60 / cellW.value / 50) * 50)
+  for (let position = 0; position < length; position += step) {
+    const x = position * cellW.value
     ctx.fillRect(x, rulerTop, 1, 4)
     ctx.fillText(String(position + 1), x + 2, rulerTop + 5)
   }
@@ -397,28 +417,20 @@ onMounted(async () => {
   <div class="wrap">
     <header>
       <div class="pick">
-        <select
-          :value="gene"
+        <GenePicker
+          :model-value="gene"
+          :genes="genes"
           :disabled="loading"
-          @change="selectGene(($event.target as HTMLSelectElement).value)"
-        >
-          <optgroup :label="`Ready (${readyGenes.length})`">
-            <option v-for="g in readyGenes" :key="g.symbol" :value="g.symbol">
-              {{ g.symbol }} &mdash; {{ g.length }} aa, {{ g.n_variants }} variants
-            </option>
-          </optgroup>
-          <optgroup
-            v-if="pendingGenes.length"
-            :label="`Not yet computed (${pendingGenes.length}) — needs a GPU scan`"
-          >
-            <option v-for="g in pendingGenes" :key="g.symbol" :value="g.symbol">
-              {{ g.symbol }} &mdash; {{ g.length }} aa, {{ estimateLabel(g.length) }} to compute
-            </option>
-          </optgroup>
-        </select>
+          :ready="isReady"
+          :label="pickerLabel"
+          @select="selectGene"
+        />
         <span v-if="current" class="protein">{{ current.protein_name }}</span>
       </div>
       <div class="modes">
+        <button v-if="matrix.length * 3 > 1100" class="zoom" @click="toggleFit">
+          {{ fit ? 'Detail' : 'Fit whole protein' }}
+        </button>
         <button :class="{ on: mode === 'probability' }" @click="setMode('probability')">
           Pathogenicity
         </button>
@@ -568,6 +580,8 @@ header {
   background: #fff3cd;
   color: #7a5b00;
 }
+
+.zoom { margin-right: 10px; }
 
 .modes {
   display: flex;
