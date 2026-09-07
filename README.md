@@ -75,6 +75,20 @@ The trained head, the parsed ClinVar data, the zero-shot scores and the
 precomputed saturation maps are all committed, so nothing needs retraining and
 the only setup step is the feature cache.
 
+## Notes
+
+- Run from a clean clone, not just from my machine: install, feature cache in
+  2.1 min on a GTX 1050 Ti, then `/predict` returns calibrated probabilities.
+  TP53 R175H 0.935, P72R 0.089, R273H 0.932.
+- `pip install torch` gives a CPU-only wheel. Without the CUDA build the
+  feature cache goes from ~2 min to about an hour.
+- ~55 MB of artefacts are committed so nothing has to be retrained. Only the
+  250 MB feature cache is built locally, and it is the one thing that is not.
+- The API works without the trained head too - it falls back to zero-shot LLR
+  and reports `model_available: false` rather than failing.
+- Zero-shot barely separates the two TP53 examples above (LLR -8.65 vs -6.69).
+  The head is what turns that into 0.935 vs 0.089.
+
 **[Full documentation → `docs/GUIDE.md`](docs/GUIDE.md)** — results, methods,
 rebuild instructions, and the design decisions that are not obvious from the
 code.
