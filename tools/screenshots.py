@@ -19,13 +19,17 @@ import urllib.request
 
 import websockets
 
-APP = "http://localhost:5173"
+# Routing lets the lookup view load with a worked example already scored,
+# instead of shooting an empty form.
+APP = ("http://localhost:5173/?view=lookup&gene=TP53"
+       "&variant=R175H%20P72R%20R273H")
 CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 WIDTH, HEIGHT = 1200, 2400
 
-# Chrome's own --screenshot flag can only shoot the URL it is given, and the app
-# has no routing, so the tabs have to be clicked over CDP.
+# Tabs are clicked rather than reached by URL, so the capture exercises the same
+# path a user takes. Chrome's own --screenshot flag cannot click anything.
 SHOTS = [
+    ("Lookup", "lookup.png", "!!document.querySelector('tbody tr')"),
     ("Heatmap", "heatmap.png",
      "!!document.querySelector('canvas') && document.querySelector('canvas').width > 100"),
     ("Structure", "structure.png",

@@ -17,6 +17,16 @@ scored on the identical variants, gets **0.960** - see
 
 ---
 
+## Lookup
+
+Type a gene and one or more substitutions, get a calibrated probability with the
+ClinVar label beside it.
+
+![Variant lookup](docs/img/lookup.png)
+
+Every view is addressable, so a result is a link:
+`?view=lookup&gene=TP53&variant=R175H`.
+
 ## Saturation map
 
 Every possible substitution at every residue, coloured by predicted

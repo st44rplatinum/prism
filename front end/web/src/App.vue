@@ -1,26 +1,45 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted } from 'vue'
 import Heatmap from './components/Heatmap.vue'
+import Lookup from './components/Lookup.vue'
 import Metrics from './components/Metrics.vue'
 import Structure from './components/Structure.vue'
+import { state, syncUrl, type View } from './state'
 
-type View = 'heatmap' | 'structure' | 'metrics'
-const view = ref<View>('heatmap')
+const TABS: { id: View; label: string }[] = [
+  { id: 'lookup', label: 'Lookup' },
+  { id: 'heatmap', label: 'Heatmap' },
+  { id: 'structure', label: 'Structure' },
+  { id: 'metrics', label: 'Metrics' },
+]
+
+function show(view: View) {
+  if (view === state.view) return
+  state.view = view
+  syncUrl()
+}
+
+// Stamp the current state onto the address bar on first load, so a reload or a
+// copied link lands in the same place.
+onMounted(() => syncUrl(true))
 </script>
 
 <template>
   <div class="app">
     <nav>
       <span class="brand">ESM-2 variant effect predictor</span>
-      <button :class="{ on: view === 'heatmap' }" @click="view = 'heatmap'">Heatmap</button>
-      <button :class="{ on: view === 'structure' }" @click="view = 'structure'">Structure</button>
-      <button :class="{ on: view === 'metrics' }" @click="view = 'metrics'">Metrics</button>
+      <button v-for="t in TABS" :key="t.id"
+              :class="{ on: state.view === t.id }" @click="show(t.id)">
+        {{ t.label }}
+      </button>
     </nav>
 
     <!-- v-if, not v-show: the heat map sizes its canvas at draw time, and a
-         hidden canvas has no layout, so it must not be mounted while unseen. -->
-    <Heatmap v-if="view === 'heatmap'" />
-    <Structure v-else-if="view === 'structure'" />
+         hidden canvas has no layout, so it must not be mounted while unseen.
+         The selected gene lives in the shared store to survive the unmount. -->
+    <Lookup v-if="state.view === 'lookup'" />
+    <Heatmap v-else-if="state.view === 'heatmap'" />
+    <Structure v-else-if="state.view === 'structure'" />
     <Metrics v-else />
   </div>
 </template>

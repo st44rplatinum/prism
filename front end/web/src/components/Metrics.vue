@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
+import { API } from '../state'
 
-const API = 'http://localhost:8000'
 const data = ref<any>(null)
 const loading = ref(true)
 const error = ref<string | null>(null)

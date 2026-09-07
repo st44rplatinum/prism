@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
+import { API, state, syncUrl } from '../state'
 
 // --- state -----------------------------------------------------------------
 // ref() makes a value reactive: read/write it as .value here in the script,
@@ -31,7 +32,11 @@ interface GeneSummary {
   saturation_schemes: string[]
 }
 const genes = ref<GeneSummary[]>([])
-const gene = ref('TP53')
+// Bound to the shared store so the gene survives a tab switch.
+const gene = computed({
+  get: () => state.gene,
+  set: (value: string) => { state.gene = value },
+})
 
 // ClinVar ground truth for the current gene, keyed "position:mutant". Shown in
 // the tooltip so a prediction can be read against the label it should agree
@@ -75,7 +80,6 @@ function estimateLabel(length: number): string {
 const readyGenes = computed(() => genes.value.filter(isReady))
 const pendingGenes = computed(() => genes.value.filter((g) => !isReady(g)))
 
-const API = 'http://localhost:8000'
 const CELL_WIDTH = 3
 const CELL_HEIGHT = 14
 const RULER_HEIGHT = 16
@@ -365,13 +369,17 @@ async function loadGenes() {
   genes.value = await res.json()
 }
 
-async function selectGene(symbol: string) {
+function selectGene(symbol: string) {
   gene.value = symbol
+  syncUrl()
+}
+
+watch(() => state.gene, async () => {
   await load()
   // The gene just computed is now cached, so refresh the list to move it into
   // the ready group rather than leaving the picker stale.
   await loadGenes().catch(() => {})
-}
+})
 
 onMounted(async () => {
   try {

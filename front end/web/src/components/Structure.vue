@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref, shallowRef } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
+import { API, state, syncUrl } from '../state'
 
 declare const $3Dmol: any
 
-const API = 'http://localhost:8000'
 
 const container = ref<HTMLDivElement | null>(null)
 // shallowRef, not ref: the 3Dmol viewer holds a large WebGL object graph and
@@ -11,7 +11,11 @@ const container = ref<HTMLDivElement | null>(null)
 const viewer = shallowRef<any>(null)
 
 const genes = ref<any[]>([])
-const gene = ref('TP53')
+// Bound to the shared store so the gene survives a tab switch.
+const gene = computed({
+  get: () => state.gene,
+  set: (value: string) => { state.gene = value },
+})
 const loading = ref(true)
 const error = ref<string | null>(null)
 const scores = ref<number[]>([])
@@ -147,10 +151,12 @@ function setColourBy(mode: 'pathogenicity' | 'plddt') {
   applyStyle()
 }
 
-async function selectGene(symbol: string) {
+function selectGene(symbol: string) {
   gene.value = symbol
-  await load()
+  syncUrl()
 }
+
+watch(() => state.gene, load)
 
 onMounted(async () => {
   try {
