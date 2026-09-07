@@ -37,3 +37,5 @@ Thumbs.db
 AlphaMissense_*.tsv.gz
 artifacts/cache/alphamissense_panel.parquet
 artifacts/cache/test_scores.parquet
+artifacts/cache/phenotype_contrasts.parquet
+artifacts/cache/alphamissense_all.parquet

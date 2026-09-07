@@ -1,0 +1,162 @@
+{
+ "real": {
+  "contrasts": [
+   {
+    "gene": "SCN5A",
+    "description": "long QT (GoF) vs Brugada (LoF)",
+    "n_a": 31,
+    "n_b": 20,
+    "position": 0.7081,
+    "esm2_masked": 0.6048,
+    "npt_prob": 0.6226,
+    "alphamissense": 0.5032
+   },
+   {
+    "gene": "RYR1",
+    "description": "central core myopathy vs malignant hyperthermia",
+    "n_a": 35,
+    "n_b": 42,
+    "position": 0.9041,
+    "esm2_masked": 0.7156,
+    "npt_prob": 0.702,
+    "alphamissense": 0.5912
+   },
+   {
+    "gene": "COL3A1",
+    "description": "aortic aneurysm vs EDS type 4",
+    "n_a": 270,
+    "n_b": 28,
+    "position": 0.5495,
+    "esm2_masked": 0.5453,
+    "npt_prob": 0.5446,
+    "alphamissense": 0.6384
+   },
+   {
+    "gene": "FBN1",
+    "description": "aortic aneurysm vs Marfan",
+    "n_a": 76,
+    "n_b": 185,
+    "position": 0.5278,
+    "esm2_masked": 0.5474,
+    "npt_prob": 0.5482,
+    "alphamissense": 0.5842
+   },
+   {
+    "gene": "MYO7A",
+    "description": "nonsyndromic deafness vs Usher",
+    "n_a": 26,
+    "n_b": 28,
+    "position": 0.6236,
+    "esm2_masked": 0.533,
+    "npt_prob": 0.6016,
+    "alphamissense": 0.5694
+   },
+   {
+    "gene": "USH2A",
+    "description": "retinal dystrophy vs Usher",
+    "n_a": 41,
+    "n_b": 43,
+    "position": 0.5587,
+    "esm2_masked": 0.5451,
+    "npt_prob": 0.5247,
+    "alphamissense": 0.574
+   },
+   {
+    "gene": "COL2A1",
+    "description": "achondrogenesis II vs SED congenita",
+    "n_a": 22,
+    "n_b": 35,
+    "position": 0.5221,
+    "esm2_masked": 0.5195,
+    "npt_prob": 0.5519,
+    "alphamissense": 0.5143
+   },
+   {
+    "gene": "CRB1",
+    "description": "Leber congenital amaurosis vs retinal dystrophy",
+    "n_a": 25,
+    "n_b": 22,
+    "position": 0.5836,
+    "esm2_masked": 0.5436,
+    "npt_prob": 0.5691,
+    "alphamissense": 0.5909
+   }
+  ],
+  "mean_auroc": {
+   "position": 0.6222,
+   "esm2_masked": 0.5693,
+   "npt_prob": 0.5831,
+   "alphamissense": 0.5707
+  }
+ },
+ "vocabulary_control": {
+  "contrasts": [
+   {
+    "gene": "KCNQ2",
+    "description": "DEE vs DEE",
+    "n_a": 77,
+    "n_b": 123,
+    "position": 0.5377,
+    "esm2_masked": 0.5632,
+    "npt_prob": 0.5601,
+    "alphamissense": 0.5661
+   },
+   {
+    "gene": "SCN8A",
+    "description": "DEE vs DEE",
+    "n_a": 75,
+    "n_b": 62,
+    "position": 0.5506,
+    "esm2_masked": 0.6353,
+    "npt_prob": 0.611,
+    "alphamissense": 0.5671
+   },
+   {
+    "gene": "LDLR",
+    "description": "FH vs FH",
+    "n_a": 213,
+    "n_b": 81,
+    "position": 0.5327,
+    "esm2_masked": 0.5506,
+    "npt_prob": 0.5378,
+    "alphamissense": 0.557
+   },
+   {
+    "gene": "BRCA1",
+    "description": "breast cancer vs BRCA1 predisposition",
+    "n_a": 41,
+    "n_b": 25,
+    "position": 0.5483,
+    "esm2_masked": 0.5132,
+    "npt_prob": 0.5376,
+    "alphamissense": 0.5039
+   },
+   {
+    "gene": "MLH1",
+    "description": "Lynch vs HNPCC",
+    "n_a": 44,
+    "n_b": 23,
+    "position": 0.5543,
+    "esm2_masked": 0.5138,
+    "npt_prob": 0.585,
+    "alphamissense": 0.5623
+   },
+   {
+    "gene": "GJB1",
+    "description": "CMTX vs CMT-X",
+    "n_a": 27,
+    "n_b": 64,
+    "position": 0.5987,
+    "esm2_masked": 0.5828,
+    "npt_prob": 0.5723,
+    "alphamissense": 0.5272
+   }
+  ],
+  "mean_auroc": {
+   "position": 0.5537,
+   "esm2_masked": 0.5598,
+   "npt_prob": 0.5673,
+   "alphamissense": 0.5473
+  }
+ }
+}
