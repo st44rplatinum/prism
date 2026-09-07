@@ -2775,6 +2775,24 @@
    }
   ]
  },
+ "backbone_scale": {
+  "rows": [
+   {
+    "metric": "zero-shot masked-marginal",
+    "small": 0.8435,
+    "large": 0.8967
+   },
+   {
+    "metric": "with ProteinNPT",
+    "small": 0.9271,
+    "large": 0.9392
+   }
+  ],
+  "multitask": {
+   "single_task": 0.9271,
+   "multi_task": 0.9064
+  }
+ },
  "compute_minutes": {
   "wt": 4.1,
   "masked": 111.8

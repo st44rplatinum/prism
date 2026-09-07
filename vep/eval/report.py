@@ -16,6 +16,7 @@ import json
 from pathlib import Path
 
 import numpy as np
+import pandas as pd
 import torch
 from sklearn.metrics import roc_auc_score, roc_curve
 
@@ -67,6 +68,43 @@ def _alphamissense_block() -> dict | None:
         )
     except FileNotFoundError:
         return None
+
+
+def _backbone_scale_block() -> dict | None:
+    """What the 4x larger backbone bought, and what multi-task training cost.
+
+    Both are measured but were only ever written down in the guide.
+    """
+    try:
+        big = json.loads(
+            Path("artifacts/npt_results_esm2_t33_650M_UR50D.json").read_text())
+        multi = json.loads(Path("artifacts/multitask_results.json").read_text())
+        zs = pd.read_parquet(
+            "artifacts/cache/zeroshot_all_esm2_t33_650M_UR50D.parquet")
+    except FileNotFoundError:
+        return None
+
+    test = zs[zs.split == "test"]
+    aurocs = []
+    for _, sub in test.groupby("gene"):
+        y = (sub.label == "pathogenic").astype(int)
+        if y.sum() < 3 or (len(y) - y.sum()) < 3:
+            continue
+        aurocs.append(roc_auc_score(y, sub.esm_masked))
+
+    return {
+        "rows": [
+            {"metric": "zero-shot masked-marginal",
+             "small": 0.8435, "large": round(float(np.mean(aurocs)), 4)},
+            {"metric": "with ProteinNPT",
+             "small": 0.9271,
+             "large": round(float(big["inductive"]["per_gene_auroc"]), 4)},
+        ],
+        "multitask": {
+            "single_task": 0.9271,
+            "multi_task": round(float(multi["pathogenicity"]["per_gene_auroc"]), 4),
+        },
+    }
 
 
 def _fitness_block() -> dict | None:
@@ -246,6 +284,7 @@ def build_report(cfg: Config, out_path: Path) -> dict:
         },
         "fitness": _fitness_block(),
         "alphamissense": _alphamissense_block(),
+        "backbone_scale": _backbone_scale_block(),
         "compute_minutes": zs_report["compute_minutes"],
         "spearman_wt_vs_masked": zs_report["spearman_wt_vs_masked"],
         "backbone": cfg.backbone.name,

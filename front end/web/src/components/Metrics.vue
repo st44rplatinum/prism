@@ -182,6 +182,49 @@ const cy = (v: number) => C.h - C.pad - v * (C.h - C.pad - 10)
         The one place the ordering flips is pooled AUROC, where ProteinNPT is ahead.
       </p>
 
+      <!-- backbone scale -->
+      <template v-if="data.backbone_scale">
+        <h3>Does a bigger backbone help?</h3>
+        <table class="scores">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="num">150M</th>
+              <th class="num">650M</th>
+              <th class="num">&Delta;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="r in data.backbone_scale.rows" :key="r.metric">
+              <td>{{ r.metric }}</td>
+              <td class="num dim">{{ r.small.toFixed(4) }}</td>
+              <td class="num">{{ r.large.toFixed(4) }}</td>
+              <td class="num" :class="r.large - r.small > 0 ? 'up' : 'down'">
+                {{ r.large - r.small > 0 ? '+' : '' }}{{ (r.large - r.small).toFixed(4) }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="note">
+          Per-gene AUROC on the same held-out genes. Four times the backbone buys
+          a lot of zero-shot and almost nothing end to end &mdash; the head had
+          already recovered most of what the larger model provides, so they
+          partly substitute for each other. The served model is the 150M one.
+        </p>
+        <p class="note">
+          Multi-task training on ClinVar and GRB2 together cost pathogenicity
+          accuracy:
+          <strong>{{ data.backbone_scale.multitask.single_task.toFixed(4) }}</strong>
+          single-task &rarr;
+          <strong>{{ data.backbone_scale.multitask.multi_task.toFixed(4) }}</strong>
+          multi-task
+          (<span class="down">{{ (data.backbone_scale.multitask.multi_task -
+             data.backbone_scale.multitask.single_task).toFixed(4) }}</span>).
+          That is why the two tasks are kept apart, and why the fitness result
+          below is reported from a separate model.
+        </p>
+      </template>
+
       <div class="grid">
         <!-- scatter -->
         <figure>
