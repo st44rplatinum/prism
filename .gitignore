@@ -10,6 +10,9 @@ data/grb2-binding.tsv
 # two minutes with `python -m vep.esm.cache`.
 artifacts/cache/*
 !artifacts/cache/saturation/
+# Zero-shot scores: 1.4 MB, backbone-only, and the only other file the
+# predictor needs. Regenerating it is the ~2h stage of the pipeline.
+!artifacts/cache/zeroshot_all.parquet
 
 # Research checkpoints. Only the served one is committed - the others (650M,
 # multi-task, fitness-only) exist to reproduce table rows, not to run the app.

@@ -140,6 +140,7 @@ Committed, so a clone can serve predictions without retraining anything:
 | `data/processed/` | 1.4 MB | 29,088 parsed variants over 183 proteins |
 | `artifacts/models/npt.pt` | 18 MB | the served ProteinNPT head (150M backbone) |
 | `artifacts/cache/saturation/` | 9.5 MB | precomputed maps for the genes that have them |
+| `artifacts/cache/zeroshot_all.parquet` | 1.4 MB | zero-shot scores; the predictor will not load without them |
 | `artifacts/*.json` | small | every measured result behind the tables above |
 
 Not committed, because it is either large or somebody else's:
@@ -154,7 +155,11 @@ Not committed, because it is either large or somebody else's:
 ## Setup
 
 ```bash
-python -m pip install torch transformers pandas numpy scikit-learn scipy h5py pyarrow pyyaml fastapi uvicorn requests pytest
+# PyPI's default torch wheel is CPU-only. With an NVIDIA GPU install the CUDA
+# build first: the feature cache takes ~2 min on a GPU and roughly an hour on
+# a CPU, and every other stage scales the same way.
+pip install torch --index-url https://download.pytorch.org/whl/cu118
+pip install transformers pandas numpy scikit-learn scipy h5py pyarrow pyyaml fastapi uvicorn requests pytest
 ```
 
 Build the feature cache, then serve:

@@ -176,3 +176,24 @@ class FeatureCache:
 
     def __exit__(self, *exc) -> None:
         self.close()
+
+
+def main() -> None:
+    import argparse
+
+    ap = argparse.ArgumentParser(
+        description="Extract per-residue ESM-2 features for the gene panel."
+    )
+    ap.add_argument("--config", default="configs/default.yaml")
+    ap.add_argument("--genes", help="comma-separated subset")
+    ap.add_argument("--overwrite", action="store_true")
+    args = ap.parse_args()
+
+    cfg = Config.load(args.config)
+    genes = args.genes.split(",") if args.genes else None
+    path = build_cache(cfg, genes=genes, overwrite=args.overwrite)
+    print(f"feature cache at {path} ({path.stat().st_size / 1e6:.0f} MB)")
+
+
+if __name__ == "__main__":
+    main()

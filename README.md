@@ -59,8 +59,11 @@ prediction is untouched, and the single output axis is why.
 ## Quick start
 
 ```bash
-python -m pip install torch transformers pandas numpy scikit-learn scipy h5py pyarrow pyyaml fastapi uvicorn requests pytest
-python -m vep.esm.cache
+# PyPI's default torch wheel is CPU-only. With an NVIDIA GPU, install the CUDA
+# build first or everything below runs ~30x slower.
+pip install torch --index-url https://download.pytorch.org/whl/cu118
+pip install transformers pandas numpy scikit-learn scipy h5py pyarrow pyyaml fastapi uvicorn requests pytest
+python -m vep.esm.cache          # per-residue features, ~2 min on a GPU
 uvicorn api.main:app --port 8000
 ```
 
@@ -68,8 +71,9 @@ uvicorn api.main:app --port 8000
 cd "front end/web" && npm install && npm run dev
 ```
 
-The trained head, the parsed ClinVar data, and precomputed saturation maps are
-committed, so nothing needs retraining.
+The trained head, the parsed ClinVar data, the zero-shot scores and the
+precomputed saturation maps are all committed, so nothing needs retraining and
+the only setup step is the feature cache.
 
 **[Full documentation → `docs/GUIDE.md`](docs/GUIDE.md)** — results, methods,
 rebuild instructions, and the design decisions that are not obvious from the
