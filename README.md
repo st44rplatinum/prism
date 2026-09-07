@@ -51,8 +51,35 @@ gene, and both are "pathogenic". AlphaMissense tells them apart at **AUROC
 position alone does better (0.708).
 
 Across eight such within-gene contrasts, no pathogenicity score beat a plain
-positional baseline. Pathogenicity prediction is in good shape; mechanism
-prediction is untouched, and the single output axis is why.
+positional baseline.
+
+### And there is very little data to fix it with
+
+I scanned all of ClinVar to find out how big this problem even is:
+
+| | |
+|---|---|
+| pathogenic missense variants | 84,359 |
+| genes | 3,564 |
+| genes with two phenotypes, 30+ variants each | **25** |
+| of those, a genuinely different disease rather than two names for one | **~8** |
+
+Most of the 25 are the same condition written twice - Lynch syndrome vs
+hereditary nonpolyposis colorectal cancer, Kabuki syndrome vs Kabuki syndrome 1,
+familial hypercholesterolemia vs hypercholesterolemia familial 1. The ones that
+are real: ATM, DYSF, NEB, SACS, USH2A, FBN1, NF1, ABCA4.
+
+Eighteen of the 25 are already in this 183-gene panel, so a bigger panel does
+not help. The limit is ClinVar, not the gene list.
+
+So there is no training set here. Roughly eight usable contrasts with a few
+dozen variants each is enough to show that current predictors cannot do this,
+and not enough to build something that can.
+
+```bash
+python -m vep.eval.survey        # the scan above
+python -m vep.eval.mechanism     # scores each contrast
+```
 
 ---
 

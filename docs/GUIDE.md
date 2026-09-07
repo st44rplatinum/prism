@@ -218,7 +218,7 @@ cd "front end/web" && npm install && npm run dev
 | `vep/esm/` | ESM-2 wrapper, long-protein windowing, feature and saturation caches |
 | `vep/models/` | ProteinNPT, the serving predictor, calibration |
 | `vep/train/` | datasets, trainer, multi-task trainer |
-| `vep/eval/` | zero-shot baselines, metrics, report builder, AlphaMissense comparison |
+| `vep/eval/` | zero-shot baselines, metrics, report builder, AlphaMissense comparison, mechanism survey |
 | `vep/pipeline.py` | end-to-end rebuild for one backbone |
 | `vep/precompute.py` | saturation cache for the whole panel |
 | `vep/gpu_guard.py` | thermal watchdog for long GPU jobs |

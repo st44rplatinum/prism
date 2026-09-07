@@ -1,0 +1,183 @@
+{
+ "min_per_class": 30,
+ "n_variants": 84359,
+ "n_genes": 3564,
+ "n_genes_with_contrast": 25,
+ "contrasts": [
+  {
+   "gene": "BRCA2",
+   "n_a": 229,
+   "n_b": 225,
+   "name_a": "Hereditary breast ovarian cancer syndrome",
+   "name_b": "Breast-ovarian cancer, familial, susceptibility to, 2"
+  },
+  {
+   "gene": "SCN1A",
+   "n_a": 379,
+   "n_b": 130,
+   "name_a": "Early-infantile DEE",
+   "name_b": "Severe myoclonic epilepsy in infancy"
+  },
+  {
+   "gene": "ATM",
+   "n_a": 225,
+   "n_b": 103,
+   "name_a": "Ataxia-telangiectasia syndrome",
+   "name_b": "Familial cancer of breast"
+  },
+  {
+   "gene": "MSH6",
+   "n_a": 86,
+   "n_b": 91,
+   "name_a": "Hereditary nonpolyposis colorectal neoplasms",
+   "name_b": "Lynch syndrome 5"
+  },
+  {
+   "gene": "KMT2D",
+   "n_a": 66,
+   "n_b": 84,
+   "name_a": "Kabuki syndrome",
+   "name_b": "Kabuki syndrome 1"
+  },
+  {
+   "gene": "USH2A",
+   "n_a": 74,
+   "n_b": 61,
+   "name_a": "Usher syndrome type 2A",
+   "name_b": "Retinitis pigmentosa 39"
+  },
+  {
+   "gene": "ABCA4",
+   "n_a": 80,
+   "n_b": 61,
+   "name_a": "Retinal dystrophy",
+   "name_b": "Severe early-childhood-onset retinal dystrophy"
+  },
+  {
+   "gene": "BRCA1",
+   "n_a": 59,
+   "n_b": 177,
+   "name_a": "Hereditary breast ovarian cancer syndrome",
+   "name_b": "Breast-ovarian cancer, familial, susceptibility to, 1"
+  },
+  {
+   "gene": "FBN1",
+   "n_a": 115,
+   "n_b": 56,
+   "name_a": "Marfan syndrome",
+   "name_b": "Familial thoracic aortic aneurysm and aortic dissection"
+  },
+  {
+   "gene": "LDLR",
+   "n_a": 51,
+   "n_b": 112,
+   "name_a": "Familial hypercholesterolemia",
+   "name_b": "Hypercholesterolemia, familial, 1"
+  },
+  {
+   "gene": "MLH1",
+   "n_a": 46,
+   "n_b": 63,
+   "name_a": "Hereditary nonpolyposis colorectal neoplasms",
+   "name_b": "Colorectal cancer, hereditary nonpolyposis, type 2"
+  },
+  {
+   "gene": "NEB",
+   "n_a": 44,
+   "n_b": 52,
+   "name_a": "Nemaline myopathy",
+   "name_b": "Arthrogryposis multiplex congenita 6"
+  },
+  {
+   "gene": "KCNQ2",
+   "n_a": 123,
+   "n_b": 43,
+   "name_a": "Early-infantile DEE",
+   "name_b": "Developmental and epileptic encephalopathy, 7"
+  },
+  {
+   "gene": "PTEN",
+   "n_a": 84,
+   "n_b": 43,
+   "name_a": "PTEN hamartoma tumor syndrome",
+   "name_b": "Cowden syndrome 1"
+  },
+  {
+   "gene": "TP53",
+   "n_a": 45,
+   "n_b": 42,
+   "name_a": "Neoplasm",
+   "name_b": "Ovarian neoplasm"
+  },
+  {
+   "gene": "MSH2",
+   "n_a": 40,
+   "n_b": 82,
+   "name_a": "Hereditary nonpolyposis colorectal neoplasms",
+   "name_b": "Lynch syndrome 1"
+  },
+  {
+   "gene": "NF1",
+   "n_a": 39,
+   "n_b": 338,
+   "name_a": "Juvenile myelomonocytic leukemia",
+   "name_b": "Cardiovascular phenotype"
+  },
+  {
+   "gene": "GCK",
+   "n_a": 39,
+   "n_b": 57,
+   "name_a": "Maturity-onset diabetes of the young",
+   "name_b": "Maturity-onset diabetes of the young type 2"
+  },
+  {
+   "gene": "SACS",
+   "n_a": 61,
+   "n_b": 36,
+   "name_a": "Spastic paraplegia",
+   "name_b": "Charlevoix-Saguenay spastic ataxia"
+  },
+  {
+   "gene": "COL1A1",
+   "n_a": 35,
+   "n_b": 34,
+   "name_a": "Osteogenesis imperfecta",
+   "name_b": "Osteogenesis imperfecta with normal sclerae, dominant form"
+  },
+  {
+   "gene": "CREBBP",
+   "n_a": 33,
+   "n_b": 51,
+   "name_a": "Rubinstein-Taybi syndrome",
+   "name_b": "Rubinstein-Taybi syndrome due to CREBBP mutations"
+  },
+  {
+   "gene": "COL7A1",
+   "n_a": 75,
+   "n_b": 33,
+   "name_a": "Epidermolysis bullosa dystrophica",
+   "name_b": "Recessive dystrophic epidermolysis bullosa"
+  },
+  {
+   "gene": "DYSF",
+   "n_a": 31,
+   "n_b": 44,
+   "name_a": "Autosomal recessive limb-girdle muscular dystrophy",
+   "name_b": "Miyoshi muscular dystrophy 1"
+  },
+  {
+   "gene": "PMS2",
+   "n_a": 36,
+   "n_b": 30,
+   "name_a": "Hereditary nonpolyposis colorectal neoplasms",
+   "name_b": "Lynch syndrome 4"
+  },
+  {
+   "gene": "KCNH2",
+   "n_a": 30,
+   "n_b": 39,
+   "name_a": "Long QT syndrome 2",
+   "name_b": "Cardiovascular phenotype"
+  }
+ ]
+}
