@@ -297,7 +297,7 @@ progress rather than gene counts.
 python -m pytest tests -q
 ```
 
-50 tests, CPU-only, no network, ~45 s. They run on every push via
+50 Python tests, CPU-only, no network, ~45 s, plus 8 front-end tests. They run on every push via
 `.github/workflows/tests.yml`, on a CPU-only torch build - the suite
 reaches no GPU, no large artefact and no remote service, so CI needs a
 subset of the runtime dependencies. They pin the properties that would
